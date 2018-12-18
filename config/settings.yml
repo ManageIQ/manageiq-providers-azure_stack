@@ -1,0 +1,30 @@
+---
+:ems:
+  :ems_azure_stack:
+    :blacklisted_event_names: []
+    :event_handling:
+      :event_groups:
+
+        :power:
+          :critical:
+            - AZURE_STACK_instance_power_on
+            - AZURE_STACK_instance_power_off
+
+:http_proxy:
+  :azure_stack:
+    :host:
+    :password:
+    :port:
+    :user:
+
+:workers:
+  :worker_base:
+    :event_catcher:
+      :event_catcher_azure_stack:
+        :poll: 20.seconds
+    :queue_worker_base:
+      :ems_metrics_collector_worker:
+        :ems_metrics_collector_worker_azure_stack: {}
+      :ems_refresh_worker:
+        :ems_refresh_worker_azure_stack: {}
+
