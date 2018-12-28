@@ -1,0 +1,59 @@
+---
+#
+# This token has expiration date set to year 2200 so that it's always valid.
+#
+
+http_interactions:
+- request:
+    method: get
+    uri: https://login.microsoftonline.com/AZURE_STACK_TENANT/oauth2/token
+    body:
+      encoding: UTF-8
+      string: resource=https%3A%2F%2Fmanagement.AZURE_STACK_DOMAIN%2Fafb5f849-2091-4362-bca6-0a6cd7bcd4fc&client_id=1950a258-227b-4e31-a9cf-717495945fc2&username=AZURE_STACK_USERID&password=AZURE_STACK_PASSWORD&grant_type=password
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Ms-Request-Id:
+      - c8fa4f61-0d56-4649-a6cb-ea631dd03d00
+      P3p:
+      - CP="DSP CUR OTPi IND OTRi ONL FIN"
+      Set-Cookie:
+      - fpc=AVzS07JIt7VHvw06hh2NZL8OMJVQAQD8ZCBKimbWCA; expires=Sat, 19-Jan-2019 14:49:05
+        GMT; path=/; secure; HttpOnly
+      - stsservicecookie=ests; path=/; secure; HttpOnly
+      - x-ms-gateway-slice=004; path=/; secure; HttpOnly
+      Date:
+      - Thu, 20 Dec 2018 14:49:04 GMT
+      Content-Length:
+      - '2730'
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"7288733035","not_before":"7288733035","resource":"https://management.AZURE_STACK_DOMAIN/afb5f849-2091-4362-bca6-0a6cd7bcd4fc","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuc3RhY2twb2MuY29tL2FmYjVmODQ5LTIwOTEtNDM2Mi1iY2E2LTBhNmNkN2JjZDRmYyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2EzZjMzYWI5LTYzNjItNDYwOS1iNDRkLWE2NjkxMDdlYmQ5ZC8iLCJpYXQiOjE1NDUzMTcwNDUsIm5iZiI6MTU0NTMxNzA0NSwiZXhwIjoxNTQ1MzIwOTQ1LCJhY3IiOiIxIiwiYWlvIjoiQVVRQXUvOEpBQUFBS001U3pCaHU2cDZkdXExMithSENmNGFrU1RMMnRON3JnUmt1QUhsTFV0NGhlejVwUjZJS1F6djdBaTFTT3poMFhrZDFuaHdxTFB6bjlvbUtMSVhPQVE9PSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiIxOTUwYTI1OC0yMjdiLTRlMzEtYTljZi03MTc0OTU5NDVmYzIiLCJhcHBpZGFjciI6IjAiLCJlbWFpbCI6Im1wbGVza29AcmVkaGF0LmNvbSIsImZhbWlseV9uYW1lIjoiUGxlc2tvIiwiZ2l2ZW5fbmFtZSI6Ik1paGEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC82NGRjNjllNC1kMDgzLTQ5ZmMtOTU2OS1lYmVjZTFkZDE0MDgvIiwiaXBhZGRyIjoiOTEuMjE3LjI1NS41IiwibmFtZSI6Im1wbGVza28iLCJvaWQiOiI1NmQ3ZDY2ZC0yMWQ0LTQwMGMtYjllOC0wZGM1MGQ3MDQxODMiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJqRXZ2aWFKbUs0LTI0a3p5WjJ1WDNrVURGdVJFR05fTVJuV2Z6RlQ3aURzIiwidGlkIjoiYTNmMzNhYjktNjM2Mi00NjA5LWI0NGQtYTY2OTEwN2ViZDlkIiwidW5pcXVlX25hbWUiOiJtcGxlc2tvQHJlZGhhdC5jb20iLCJ1dGkiOiJZVV82eUZZTlNVYW15LXBqSGRBOUFBIiwidmVyIjoiMS4wIn0.SQ5UG2mF7WgqUS9TUaPEkTDCombJAe02tRL8E8G8Ez-a9HQPaZT6b3IT8hEvC_QQE6kXixEGFzO79Cnb-OaJ5rtmeE9gv8nUWMVIbEghukG76UcnbIdnlQrPeNk39oCSUmdvqIJ6TCIzoIHB4uCJHwy_6xWwNe5EOA4BPI_T_vYfUIB7dbUD8hzjmAIBSoQMxKPo2ucDKKQMMaQKyGLNQbhs6V1ymIva0ZS1h83IjB82ucL6way79BGSdxkbictUxWR9lVobqvdBqwUSgHFWm_LBNBNYUb6sp6Fr9P167dhdO-EDQUYipLeubiSqW8XsdmyoMTlRFHj74ExHNzggMg","refresh_token":"AQABAAAAAAC5una0EUFgTIF8ElaxtWjTbV7NCWbgAoQNAb3J_4HNu4CCqJomtnxzBm6_eMso_8JfNQFpqU0PrwxGWRJNlxQnNwRtDMCGZIcBAUoBi083fTm1RXmbMXhbZOWQku0O4euZhPbnf6VkM8QK_lOdgPP_nDWDh-ZS5O2huZOes3riJOOPiTvbjG8oNyEVPdNU_qYCzTvBJg_MIO1cWD5FtmuoQslwMd7TmnIsxyGLDxBLkxo0WM1-NN-G5MianGJhzZyZAxErfms8OL0-fg3Z5MvnfB4jEnfRaLsn4adnPBRP_LPFudhvKUzhfNuD_ErUxXmdi5VFCEOfknLqam6BPverzgTSxGR9UVajXP50I1j_3nbF_AVDyyxQ8IIBqU4_A1xee20bTL7Ifbe2RUqKFogYERt9qDUkpoSoST5iGtPGbu2RUU7BWF2shxor7LPyLU3RXOQ8oYOHqQfWWImKZfF35Kjjfol7qVyTWwTAJUEYioGwUr2LM7svwq7Vm-AU4zS2wPk--pVMVjGBF5kTRXwPGLaPL9wkisJaTydQqPtSKIi-GX2wUd91s3dyVs36-bR17U6dH3-zcsgts3CKvNyY6NcpbnHOK4Ad2hU1pCl0VWbr7GZBw3iLjvuP6C55EyNaPDiqN_fzu6AYvDtL6C3TGRbmR-SCgcB8nCc_vxcKnjEwsp-ykhlY39qztHG0WpMjerwsThU74_uJcgsVCjbmyfXWmUQGp73joGJvtMLTVTR4i64O6d11tDh_aLkMa-89ebQmYJGgxcbkMyhVLrPIdysUfskZTBFZe-U9SdmHD-1mWNdVfTLU5e9NhXrhnvBTdE9MaMKYutr0BCsJXc1-G2VAdebjlOkMZRNQCt6HpyAA"}'
+    http_version: 
+  recorded_at: Thu, 20 Dec 2018 14:49:05 GMT
+recorded_with: VCR 3.0.3

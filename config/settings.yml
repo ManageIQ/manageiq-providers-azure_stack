@@ -1,6 +1,9 @@
 ---
 :ems:
   :ems_azure_stack:
+    # How long before giving up on establishing connection with Azure Stack API URL.
+    :api_connection_timeout: 5.seconds
+
     :blacklisted_event_names: []
     :event_handling:
       :event_groups:
@@ -16,6 +19,10 @@
     :password:
     :port:
     :user:
+
+:ems_refresh:
+  :azure_stack:
+    :inventory_object_refresh: true
 
 :workers:
   :worker_base:

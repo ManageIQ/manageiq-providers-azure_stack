@@ -1,2 +1,5 @@
-# GlobalVars:
-#   AllowedVariables:
+GlobalVars:
+  AllowedVariables:
+    # Loggers
+    - $log
+    - $azure_stack_log

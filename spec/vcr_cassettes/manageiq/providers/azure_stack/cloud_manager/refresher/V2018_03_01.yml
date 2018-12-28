@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourcegroups?api-version=2018-02-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.4.4 (x86_64-linux) ms_rest/0.7.3 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_resources/0.17.2 Profiles/V2018_03_01/Resources/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - e560097d-6213-4678-bbc5-8f1d0722c9dd
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14999'
+      X-Ms-Request-Id:
+      - 3a61c51e-3308-4793-9704-a846e6f43470
+      X-Ms-Correlation-Request-Id:
+      - 3a61c51e-3308-4793-9704-a846e6f43470
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20181228T110838Z:3a61c51e-3308-4793-9704-a846e6f43470
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 28 Dec 2018 11:08:38 GMT
+      Content-Length:
+      - '203'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group","name":"demo-resource-group","location":"westus","properties":{"provisioningState":"Succeeded"}}]}'
+    http_version: 
+  recorded_at: Fri, 28 Dec 2018 11:09:46 GMT
+recorded_with: VCR 3.0.3

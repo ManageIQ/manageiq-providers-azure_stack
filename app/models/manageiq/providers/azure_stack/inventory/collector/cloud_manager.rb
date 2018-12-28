@@ -1,13 +1,5 @@
-class ManageIQ::Providers::AzureStack::Inventory::Collector::CloudManager < ManageIQ::Providers::Inventory::Collector
-  def connection
-    @connection ||= manager.connect
+class ManageIQ::Providers::AzureStack::Inventory::Collector::CloudManager < ManageIQ::Providers::AzureStack::Inventory::Collector
+  def resource_groups
+    azure_resources.resource_groups.list
   end
-
-  def vms
-    [
-      OpenStruct.new(:id => '1', :name => 'funky', :location => 'dc-1', :vendor => 'unknown'),
-      OpenStruct.new(:id => '2', :name => 'bunch', :location => 'dc-1', :vendor => 'unknown')
-    ]
-  end
-
 end

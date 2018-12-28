@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/providers/Microsoft.Compute?api-version=2016-02-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.4.4 (x86_64-linux) ms_rest/0.7.3 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_resources/0.17.2 Profiles/V2017_03_09/Resources/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - 3fd6964d-d96a-4b65-9713-493bbc245cf5
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14995'
+      X-Ms-Request-Id:
+      - cbea6867-d518-4238-aaa0-bc207c174345
+      X-Ms-Correlation-Request-Id:
+      - cbea6867-d518-4238-aaa0-bc207c174345
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20181227T115652Z:cbea6867-d518-4238-aaa0-bc207c174345
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Thu, 27 Dec 2018 11:56:51 GMT
+      Content-Length:
+      - '2745'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/providers/Microsoft.Compute","namespace":"Microsoft.Compute","authorization":{"applicationId":"b5c22816-0b7e-419b-b487-a6e0462c6561","roleDefinitionId":"b24988ac-6180-42a0-ab88-20f7382dd24c"},"resourceTypes":[{"resourceType":"availabilitySets","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"],"capabilities":"CrossResourceGroupResourceMove,
+        CrossSubscriptionResourceMove"},{"resourceType":"disks","locations":["westus"],"apiVersions":["2017-03-30"],"capabilities":"CrossResourceGroupResourceMove,
+        CrossSubscriptionResourceMove"},{"resourceType":"locations","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"locations/diskoperations","locations":["westus"],"apiVersions":["2017-03-30"]},{"resourceType":"locations/operations","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"locations/publishers","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"locations/usages","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"locations/vmSizes","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"operations","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"snapshots","locations":["westus"],"apiVersions":["2017-03-30"],"capabilities":"CrossResourceGroupResourceMove,
+        CrossSubscriptionResourceMove"},{"resourceType":"virtualMachines","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"],"capabilities":"CrossResourceGroupResourceMove,
+        CrossSubscriptionResourceMove"},{"resourceType":"virtualMachines/extensions","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"virtualMachineScaleSets","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"],"capabilities":"CrossResourceGroupResourceMove,
+        CrossSubscriptionResourceMove"},{"resourceType":"virtualMachineScaleSets/extensions","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"],"capabilities":"CrossResourceGroupResourceMove,
+        CrossSubscriptionResourceMove"},{"resourceType":"virtualMachineScaleSets/networkInterfaces","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"virtualMachineScaleSets/virtualMachines","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]},{"resourceType":"virtualMachineScaleSets/virtualMachines/networkInterfaces","locations":["westus"],"apiVersions":["2017-03-30","2016-03-30","2015-06-15"]}],"registrationState":"Registered"}'
+    http_version: 
+  recorded_at: Thu, 27 Dec 2018 11:57:59 GMT
+recorded_with: VCR 3.0.3

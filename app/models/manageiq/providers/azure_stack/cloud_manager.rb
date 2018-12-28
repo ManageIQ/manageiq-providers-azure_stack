@@ -5,35 +5,14 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
   require_nested :RefreshWorker
   require_nested :Vm
 
-  def verify_credentials(auth_type = nil, options = {})
-    begin
-      connect
-    rescue => err
-      raise MiqException::MiqInvalidCredentialsError, err.message
-    end
+  include ManageIQ::Providers::AzureStack::ManagerMixin
 
-    true
-  end
+  alias_attribute :azure_tenant_id, :uid_ems
 
-  def connect(options = {})
-    raise MiqException::MiqHostError, "No credentials defined" if missing_credentials?(options[:auth_type])
+  has_many :resource_groups, :foreign_key => :ems_id, :dependent => :destroy, :inverse_of => false
 
-    auth_token = authentication_token(options[:auth_type])
-    self.class.raw_connect(project, auth_token, options, options[:proxy_uri] || http_proxy_uri)
-  end
-
-  def self.validate_authentication_args(params)
-    # return args to be used in raw_connect
-    return [params[:default_userid], MiqPassword.encrypt(params[:default_password])]
-  end
-
-  def self.hostname_required?
-    # TODO: ExtManagementSystem is validating this
-    false
-  end
-
-  def self.raw_connect(*args)
-    true
+  def self.my_settings
+    Settings.ems.ems_azure_stack
   end
 
   def self.ems_type
@@ -42,5 +21,9 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
 
   def self.description
     @description ||= "Azure Stack".freeze
+  end
+
+  def self.api_allowed_attributes
+    %w[azure_tenant_id].freeze
   end
 end

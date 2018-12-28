@@ -1,15 +1,19 @@
-class ManageIQ::Providers::AzureStack::Inventory::Parser::CloudManager < ManageIQ::Providers::Inventory::Parser
+class ManageIQ::Providers::AzureStack::Inventory::Parser::CloudManager < ManageIQ::Providers::AzureStack::Inventory::Parser
   def parse
-    vms
+    log_header = "Collecting data for EMS : [#{collector.manager.name}] id: [#{collector.manager.id}]"
+    $azure_stack_log.info("#{log_header}...")
+
+    resource_groups
+
+    $azure_stack_log.info("#{log_header}...Complete")
   end
 
-  def vms
-    collector.vms.each do |inventory|
-      inventory_object = persister.vms.find_or_build(inventory.id.to_s)
-      inventory_object.name = inventory.name
-      inventory_object.location = inventory.location
-      inventory_object.vendor = inventory.vendor
+  def resource_groups
+    collector.resource_groups.each do |resource_group|
+      persister.resource_groups.build(
+        :name    => resource_group.name,
+        :ems_ref => resource_group.id.downcase
+      )
     end
   end
-
 end

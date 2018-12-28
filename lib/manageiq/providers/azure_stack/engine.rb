@@ -20,6 +20,14 @@ module ManageIQ
         # config.autoload_paths << root.join("app", "models").to_s
         # config.autoload_paths << root.join("lib", "my_provider").to_s
         # config.autoload_paths << Rails.root.join("app", "models", "aliases").to_s
+
+        def self.vmdb_plugin?
+          true
+        end
+
+        def self.plugin_name
+          _('Azure Stack Provider')
+        end
       end
     end
   end
