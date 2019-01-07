@@ -2,7 +2,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
   extend ActiveSupport::Concern
 
   SUPPORTED_API_VERSIONS = %w[V2017_03_09 V2018_03_01].freeze
-  SUPPORTED_SERVICES = %i[Resources Compute].freeze
+  SUPPORTED_SERVICES = %i[Resources Compute Network].freeze
 
   def connect(options = {})
     raise _('no credentials defined') if missing_credentials?(options[:auth_type])
@@ -80,6 +80,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
       require 'ms_rest_azure'
       require 'azure_mgmt_resources'
       require 'azure_mgmt_compute'
+      require 'azure_mgmt_network'
       require 'patches/ms_rest_azure/password_token_provider' # https://github.com/Azure/azure-sdk-for-ruby/pull/2039
 
       ad_settings ||= active_directory_settings_api(base_url)

@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib}/**/*"]
 
   s.add_runtime_dependency 'azure_mgmt_compute', '0.18.3'
+  s.add_runtime_dependency 'azure_mgmt_network', '0.18.2'
   s.add_runtime_dependency 'azure_mgmt_resources', '0.17.2'
   s.add_runtime_dependency 'ms_rest_azure', '0.11.0'
 

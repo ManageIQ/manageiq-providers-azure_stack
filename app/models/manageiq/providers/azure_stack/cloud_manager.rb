@@ -11,6 +11,17 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
 
   has_many :resource_groups, :foreign_key => :ems_id, :dependent => :destroy, :inverse_of => false
 
+  before_create :ensure_managers
+
+  def ensure_network_manager
+    build_network_manager(:type => 'ManageIQ::Providers::AzureStack::NetworkManager') unless network_manager
+  end
+
+  def ensure_managers_zone_and_provider_region
+    network_manager.zone_id = zone_id if network_manager
+    # provider_region is passed over via delegation so no need to copy-paste
+  end
+
   def self.my_settings
     Settings.ems.ems_azure_stack
   end

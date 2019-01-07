@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/providers/Microsoft.Network/networkSecurityGroups?api-version=2015-06-15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.4.4 (x86_64-linux) ms_rest/0.7.3 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_network/0.18.2 Profiles/V2017_03_09/Network/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - 62a970d2-cab6-484b-89c9-375b6faf8825
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '6695'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Correlation-Request-Id:
+      - 166f7e32-7188-4462-b34b-483773f74fdd
+      X-Ms-Request-Id:
+      - 45b2a946-28f1-4fa6-b02c-94a34e57032f
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Www-Authenticate:
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvB5Ac8ruNgzq7Bwc30bjgJOT9Trcd+NIomCN+qv2fEUL4lFgDShhAt9+Pd7YqOGUVLGTWZRHFr4CFxdH0zDhcBnmasip+07U74PPjoZyA1LSbepm6yxrrm2It8zRFPGdMPo+GUzn+3yNLkO2Zls2m
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14997'
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20190107T095928Z:166f7e32-7188-4462-b34b-483773f74fdd
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 07 Jan 2019 09:59:28 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"demoSecurityGroup\",\r\n
+        \     \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup\",\r\n
+        \     \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n      \"type\":
+        \"Microsoft.Network/networkSecurityGroups\",\r\n      \"location\": \"westus\",\r\n
+        \     \"properties\": {\r\n        \"provisioningState\": \"Succeeded\",\r\n
+        \       \"resourceGuid\": \"e04a32bf-99ea-4552-a077-dbe76d0425cf\",\r\n        \"securityRules\":
+        [\r\n          {\r\n            \"name\": \"ssh\",\r\n            \"id\":
+        \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/securityRules/ssh\",\r\n
+        \           \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n
+        \           \"properties\": {\r\n              \"provisioningState\": \"Succeeded\",\r\n
+        \             \"description\": \"Allow RDP\",\r\n              \"protocol\":
+        \"Tcp\",\r\n              \"sourcePortRange\": \"*\",\r\n              \"destinationPortRange\":
+        \"22\",\r\n              \"sourceAddressPrefix\": \"*\",\r\n              \"destinationAddressPrefix\":
+        \"*\",\r\n              \"access\": \"Allow\",\r\n              \"priority\":
+        200,\r\n              \"direction\": \"Inbound\"\r\n            }\r\n          }\r\n
+        \       ],\r\n        \"defaultSecurityRules\": [\r\n          {\r\n            \"name\":
+        \"AllowVnetInBound\",\r\n            \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowVnetInBound\",\r\n
+        \           \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n
+        \           \"properties\": {\r\n              \"provisioningState\": \"Succeeded\",\r\n
+        \             \"description\": \"Allow inbound traffic from all VMs in VNET\",\r\n
+        \             \"protocol\": \"*\",\r\n              \"sourcePortRange\": \"*\",\r\n
+        \             \"destinationPortRange\": \"*\",\r\n              \"sourceAddressPrefix\":
+        \"VirtualNetwork\",\r\n              \"destinationAddressPrefix\": \"VirtualNetwork\",\r\n
+        \             \"access\": \"Allow\",\r\n              \"priority\": 65000,\r\n
+        \             \"direction\": \"Inbound\"\r\n            }\r\n          },\r\n
+        \         {\r\n            \"name\": \"AllowAzureLoadBalancerInBound\",\r\n
+        \           \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBound\",\r\n
+        \           \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n
+        \           \"properties\": {\r\n              \"provisioningState\": \"Succeeded\",\r\n
+        \             \"description\": \"Allow inbound traffic from azure load balancer\",\r\n
+        \             \"protocol\": \"*\",\r\n              \"sourcePortRange\": \"*\",\r\n
+        \             \"destinationPortRange\": \"*\",\r\n              \"sourceAddressPrefix\":
+        \"AzureLoadBalancer\",\r\n              \"destinationAddressPrefix\": \"*\",\r\n
+        \             \"access\": \"Allow\",\r\n              \"priority\": 65001,\r\n
+        \             \"direction\": \"Inbound\"\r\n            }\r\n          },\r\n
+        \         {\r\n            \"name\": \"DenyAllInBound\",\r\n            \"id\":
+        \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/DenyAllInBound\",\r\n
+        \           \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n
+        \           \"properties\": {\r\n              \"provisioningState\": \"Succeeded\",\r\n
+        \             \"description\": \"Deny all inbound traffic\",\r\n              \"protocol\":
+        \"*\",\r\n              \"sourcePortRange\": \"*\",\r\n              \"destinationPortRange\":
+        \"*\",\r\n              \"sourceAddressPrefix\": \"*\",\r\n              \"destinationAddressPrefix\":
+        \"*\",\r\n              \"access\": \"Deny\",\r\n              \"priority\":
+        65500,\r\n              \"direction\": \"Inbound\"\r\n            }\r\n          },\r\n
+        \         {\r\n            \"name\": \"AllowVnetOutBound\",\r\n            \"id\":
+        \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowVnetOutBound\",\r\n
+        \           \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n
+        \           \"properties\": {\r\n              \"provisioningState\": \"Succeeded\",\r\n
+        \             \"description\": \"Allow outbound traffic from all VMs to all
+        VMs in VNET\",\r\n              \"protocol\": \"*\",\r\n              \"sourcePortRange\":
+        \"*\",\r\n              \"destinationPortRange\": \"*\",\r\n              \"sourceAddressPrefix\":
+        \"VirtualNetwork\",\r\n              \"destinationAddressPrefix\": \"VirtualNetwork\",\r\n
+        \             \"access\": \"Allow\",\r\n              \"priority\": 65000,\r\n
+        \             \"direction\": \"Outbound\"\r\n            }\r\n          },\r\n
+        \         {\r\n            \"name\": \"AllowInternetOutBound\",\r\n            \"id\":
+        \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowInternetOutBound\",\r\n
+        \           \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n
+        \           \"properties\": {\r\n              \"provisioningState\": \"Succeeded\",\r\n
+        \             \"description\": \"Allow outbound traffic from all VMs to Internet\",\r\n
+        \             \"protocol\": \"*\",\r\n              \"sourcePortRange\": \"*\",\r\n
+        \             \"destinationPortRange\": \"*\",\r\n              \"sourceAddressPrefix\":
+        \"*\",\r\n              \"destinationAddressPrefix\": \"Internet\",\r\n              \"access\":
+        \"Allow\",\r\n              \"priority\": 65001,\r\n              \"direction\":
+        \"Outbound\"\r\n            }\r\n          },\r\n          {\r\n            \"name\":
+        \"DenyAllOutBound\",\r\n            \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/DenyAllOutBound\",\r\n
+        \           \"etag\": \"W/\\\"f3c6d7d9-26f4-43ef-9f85-93d805b54063\\\"\",\r\n
+        \           \"properties\": {\r\n              \"provisioningState\": \"Succeeded\",\r\n
+        \             \"description\": \"Deny all outbound traffic\",\r\n              \"protocol\":
+        \"*\",\r\n              \"sourcePortRange\": \"*\",\r\n              \"destinationPortRange\":
+        \"*\",\r\n              \"sourceAddressPrefix\": \"*\",\r\n              \"destinationAddressPrefix\":
+        \"*\",\r\n              \"access\": \"Deny\",\r\n              \"priority\":
+        65500,\r\n              \"direction\": \"Outbound\"\r\n            }\r\n          }\r\n
+        \       ],\r\n        \"networkInterfaces\": [\r\n          {\r\n            \"id\":
+        \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0\"\r\n
+        \         }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+    http_version: 
+  recorded_at: Mon, 07 Jan 2019 10:00:40 GMT
+recorded_with: VCR 3.0.3

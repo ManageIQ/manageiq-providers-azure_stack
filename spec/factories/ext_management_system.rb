@@ -6,6 +6,7 @@ FactoryBot.define do
     end
 
     after(:build) do |ems|
+      ems.provider_region = 'westus'
       ems.hostname = Rails.application.secrets.azure_stack.try(:[], 'host') || 'AZURE_STACK_HOST'
       ems.update(:azure_tenant_id => Rails.application.secrets.azure_stack.try(:[], 'tenant') || 'AZURE_STACK_TENANT')
       ems.update(:subscription    => Rails.application.secrets.azure_stack.try(:[], 'subscription') || 'AZURE_STACK_SUBSCRIPTION')
