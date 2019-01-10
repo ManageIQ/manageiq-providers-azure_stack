@@ -6,7 +6,6 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
 
     let(:resource_group)  { ResourceGroup.find_by(:name => 'demo-resource-group') }
     let(:security_group)  { SecurityGroup.find_by(:name => 'demoSecurityGroup') }
-    let(:ems_ref_prefix)  { %r{^/subscriptions/[^/]+/resourcegroups/[^/]+} }
     let(:saving_strategy) { :recursive }
     let(:saver_strategy)  { :default }
     let(:use_ar)          { true }
@@ -66,10 +65,5 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
   def assert_security_group
     expect(security_group).not_to be_nil
     expect(ems_ref_suffix(security_group.ems_ref)).to match(%r{^/providers/microsoft.network/networksecuritygroups/[^/]+$})
-  end
-
-  def ems_ref_suffix(ems_ref)
-    expect(ems_ref).to match(ems_ref_prefix) # fail if prefix not there, don't go continue silently
-    ems_ref.sub(ems_ref_prefix, '')
   end
 end

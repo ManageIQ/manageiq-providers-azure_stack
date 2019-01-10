@@ -2,7 +2,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
   extend ActiveSupport::Concern
 
   SUPPORTED_API_VERSIONS = %w[V2017_03_09 V2018_03_01].freeze
-  SUPPORTED_SERVICES = %i[Resources Compute Network].freeze
+  SUPPORTED_SERVICES = %i[Resources Compute Network Monitor].freeze
 
   def connect(options = {})
     raise _('no credentials defined') if missing_credentials?(options[:auth_type])
@@ -19,6 +19,9 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
 
     raise _("Unsupported API version: #{api_version}") unless api_version_supported?(api_version)
     raise _("Unsupported service: #{service}") unless service_supported?(service)
+
+    # Gem currently delievers no API profile for :Monitor other than :Latest
+    api_version = :Latest if service == :Monitor
 
     self.class.raw_connect(base_url, tenant, username, password, subscription, service, api_version,
                            :ad_settings => ad_settings, :token => token)
@@ -81,6 +84,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
       require 'azure_mgmt_resources'
       require 'azure_mgmt_compute'
       require 'azure_mgmt_network'
+      require 'azure_mgmt_monitor'
       require 'patches/ms_rest_azure/password_token_provider' # https://github.com/Azure/azure-sdk-for-ruby/pull/2039
 
       ad_settings ||= active_directory_settings_api(base_url)

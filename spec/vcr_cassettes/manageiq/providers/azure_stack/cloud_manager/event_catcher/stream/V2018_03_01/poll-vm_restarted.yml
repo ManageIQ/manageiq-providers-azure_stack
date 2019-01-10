@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/providers/microsoft.insights/eventtypes/management/values?$filter=eventTimestamp%20ge%202019-01-07T20:00:00.000Z&api-version=2015-04-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.4.4 (x86_64-linux) ms_rest/0.7.3 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_monitor/0.17.1 Profiles/Latest/Monitor/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - 813d8c28-0bcd-4399-a525-6d1261fe29eb
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '6605'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Request-Id:
+      - westus_b1f99f6ce06c42e590c8c1cf71957b4b_636825581317798207
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Www-Authenticate:
+      - oYG2MIGzoAMKAQChCwYJKoZIgvcSAQICooGeBIGbYIGYBgkqhkiG9xIBAgICAG+BiDCBhaADAgEFoQMCAQ+ieTB3oAMCARKicARu0kuacw9QxhD+aWIJgmLQj3vI+k6xsQyX5P6BZmTg8C5ybzTD60LfrGaaHbnW4Kk2GXjCItHO+RomZaOgdl7Yb/SsYc5D+EFF45kTaWTzbRNmBolCU5B4drIxyfCbtYfKvsujVnsSHI762WiL+Uo=
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14993'
+      X-Ms-Correlation-Request-Id:
+      - 06fa69ed-33f1-4c5c-8dbc-d771ca7031c7
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20190108T152851Z:06fa69ed-33f1-4c5c-8dbc-d771ca7031c7
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Tue, 08 Jan 2019 15:28:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"authorization":{"action":"Microsoft.Compute/virtualMachines/restart/action","scope":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm"},"caller":"AZURE_STACK_USERID","channels":"Operation","claims":{"aud":"https://management.AZURE_STACK_DOMAIN/afb5f849-2091-4362-bca6-0a6cd7bcd4fc","iss":"https://sts.windows.net/a3f33ab9-6362-4609-b44d-a669107ebd9d/","iat":"1546959042","nbf":"1546959042","exp":"1546962942","http://schemas.microsoft.com/claims/authnclassreference":"1","aio":"AUQAu/8JAAAAoszxkRxR56zNFJbYC5qo9gcBdrSO0u72KhTXQwR/90A5Z/p+1dn3S7g++z+vu2/M4Fj4dNJWatS/FfPxiU7jGA==","http://schemas.microsoft.com/claims/authnmethodsreferences":"pwd","appid":"d3741c6d-848b-4233-9b70-5bc3a7fc08b0","appidacr":"2","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress":"AZURE_STACK_USERID","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname":"Plesko","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname":"Miha","http://schemas.microsoft.com/identity/claims/identityprovider":"https://sts.windows.net/64dc69e4-d083-49fc-9569-ebece1dd1408/","ipaddr":"91.217.255.5","name":"mplesko","http://schemas.microsoft.com/identity/claims/objectidentifier":"56d7d66d-21d4-400c-b9e8-0dc50d704183","http://schemas.microsoft.com/identity/claims/scope":"user_impersonation","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier":"jEvviaJmK4-24kzyZ2uX3kUDFuREGN_MRnWfzFT7iDs","http://schemas.microsoft.com/identity/claims/tenantid":"a3f33ab9-6362-4609-b44d-a669107ebd9d","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name":"AZURE_STACK_USERID","uti":"TGviY3ACaUegvCDNY-whAA","ver":"1.0"},"correlationId":"043f5d70-edb3-41de-9aec-64224c15560d","description":"","eventDataId":"8afbbeb9-60a0-4393-8cc0-09bed3885606","eventName":{"value":"EndRequest","localizedValue":"End
+        request"},"category":{"value":"Administrative","localizedValue":"Administrative"},"httpRequest":{"clientRequestId":"7c2bdbab-b7c4-4e07-89c4-8c9159918002","clientIpAddress":"91.217.255.5","method":"POST"},"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm/events/8afbbeb9-60a0-4393-8cc0-09bed3885606/ticks/636825580600366343","level":"Informational","resourceGroupName":"demo-resource-group","resourceProviderName":{"value":"Microsoft.Compute","localizedValue":"Microsoft.Compute"},"resourceId":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm","resourceType":{"value":"Microsoft.Compute/virtualMachines","localizedValue":"Microsoft.Compute/virtualMachines"},"operationId":"043f5d70-edb3-41de-9aec-64224c15560d","operationName":{"value":"Microsoft.Compute/virtualMachines/restart/action","localizedValue":"Microsoft.Compute/virtualMachines/restart/action"},"properties":{"statusCode":"Accepted","serviceRequestId":null},"status":{"value":"Accepted","localizedValue":"Accepted"},"subStatus":{"value":"Accepted","localizedValue":"Accepted
+        (HTTP Status Code: 202)"},"eventTimestamp":"2019-01-08T15:27:40.0366343Z","submissionTimestamp":"2019-01-08T15:28:07.0695512Z","subscriptionId":"AZURE_STACK_SUBSCRIPTION","tenantId":"a3f33ab9-6362-4609-b44d-a669107ebd9d"},{"authorization":{"action":"Microsoft.Compute/virtualMachines/restart/action","scope":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm"},"caller":"AZURE_STACK_USERID","channels":"Operation","claims":{"aud":"https://management.AZURE_STACK_DOMAIN/afb5f849-2091-4362-bca6-0a6cd7bcd4fc","iss":"https://sts.windows.net/a3f33ab9-6362-4609-b44d-a669107ebd9d/","iat":"1546959042","nbf":"1546959042","exp":"1546962942","http://schemas.microsoft.com/claims/authnclassreference":"1","aio":"AUQAu/8JAAAAoszxkRxR56zNFJbYC5qo9gcBdrSO0u72KhTXQwR/90A5Z/p+1dn3S7g++z+vu2/M4Fj4dNJWatS/FfPxiU7jGA==","http://schemas.microsoft.com/claims/authnmethodsreferences":"pwd","appid":"d3741c6d-848b-4233-9b70-5bc3a7fc08b0","appidacr":"2","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress":"AZURE_STACK_USERID","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname":"Plesko","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname":"Miha","http://schemas.microsoft.com/identity/claims/identityprovider":"https://sts.windows.net/64dc69e4-d083-49fc-9569-ebece1dd1408/","ipaddr":"91.217.255.5","name":"mplesko","http://schemas.microsoft.com/identity/claims/objectidentifier":"56d7d66d-21d4-400c-b9e8-0dc50d704183","http://schemas.microsoft.com/identity/claims/scope":"user_impersonation","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier":"jEvviaJmK4-24kzyZ2uX3kUDFuREGN_MRnWfzFT7iDs","http://schemas.microsoft.com/identity/claims/tenantid":"a3f33ab9-6362-4609-b44d-a669107ebd9d","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name":"AZURE_STACK_USERID","uti":"TGviY3ACaUegvCDNY-whAA","ver":"1.0"},"correlationId":"043f5d70-edb3-41de-9aec-64224c15560d","description":"","eventDataId":"e9185f95-2c1a-4b19-95cb-d089405e468e","eventName":{"value":"BeginRequest","localizedValue":"Begin
+        request"},"category":{"value":"Administrative","localizedValue":"Administrative"},"httpRequest":{"clientRequestId":"7c2bdbab-b7c4-4e07-89c4-8c9159918002","clientIpAddress":"91.217.255.5","method":"POST"},"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm/events/e9185f95-2c1a-4b19-95cb-d089405e468e/ticks/636825580593960150","level":"Informational","resourceGroupName":"demo-resource-group","resourceProviderName":{"value":"Microsoft.Compute","localizedValue":"Microsoft.Compute"},"resourceId":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm","resourceType":{"value":"Microsoft.Compute/virtualMachines","localizedValue":"Microsoft.Compute/virtualMachines"},"operationId":"043f5d70-edb3-41de-9aec-64224c15560d","operationName":{"value":"Microsoft.Compute/virtualMachines/restart/action","localizedValue":"Microsoft.Compute/virtualMachines/restart/action"},"status":{"value":"Started","localizedValue":"Started"},"subStatus":{"value":"","localizedValue":""},"eventTimestamp":"2019-01-08T15:27:39.396015Z","submissionTimestamp":"2019-01-08T15:28:07.0695512Z","subscriptionId":"AZURE_STACK_SUBSCRIPTION","tenantId":"a3f33ab9-6362-4609-b44d-a669107ebd9d"}]}'
+    http_version: 
+  recorded_at: Tue, 08 Jan 2019 15:30:04 GMT
+recorded_with: VCR 3.0.3

@@ -7,11 +7,30 @@
     :blacklisted_event_names: []
     :event_handling:
       :event_groups:
-
+        :update:
+          :critical:
+            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_write_(Succeeded|Failed)$/
+          :detail:
+            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_write_.+$/
+        :deletion:
+          :critical:
+            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_delete_(Succeeded|Failed)$/
+          :detail:
+            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_delete_.+$/
         :power:
           :critical:
-            - AZURE_STACK_instance_power_on
-            - AZURE_STACK_instance_power_off
+            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_(restart|start|deallocate)_(Succeeded|Failed)$/
+          :detail:
+            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_(restart|start|deallocate)_.+$/
+        :status:
+          :critical:
+            - !ruby/regexp /^(ServiceHealth|ResourceHealth|Alert|AutoScale|Security|Recommendation)_.+$/
+        :storage:
+          :critical:
+            - !ruby/regexp /^Administrative_Microsoft.Storage_.+$/
+        :network:
+          :critical:
+            - !ruby/regexp /^Administrative_Microsoft.Network_.+$/
 
 :http_proxy:
   :azure_stack:
