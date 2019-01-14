@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Ruby/2.4.4 (x86_64-linux) ms_rest/0.7.3 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+      - Ruby/2.4.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
         azure_mgmt_network/0.18.2 Profiles/V2017_03_09/Network/Mgmt
       Content-Type:
       - application/json; charset=utf-8
@@ -17,7 +17,7 @@ http_interactions:
       Accept-Language:
       - en-US
       X-Ms-Client-Request-Id:
-      - 62a970d2-cab6-484b-89c9-375b6faf8825
+      - 2e82d728-9d2d-438c-9425-11c9d3223ce0
       Authorization:
       - Bearer AZURE_STACK_TOKEN
       Accept-Encoding:
@@ -38,23 +38,23 @@ http_interactions:
       Expires:
       - "-1"
       X-Ms-Correlation-Request-Id:
-      - 166f7e32-7188-4462-b34b-483773f74fdd
+      - c62e2f94-b59f-4778-95cc-e45786e4c909
       X-Ms-Request-Id:
-      - 45b2a946-28f1-4fa6-b02c-94a34e57032f
+      - a1aa3bd8-ef9d-4595-a14c-d64b72611d47
       Server:
       - Microsoft-HTTPAPI/2.0
       Www-Authenticate:
-      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvB5Ac8ruNgzq7Bwc30bjgJOT9Trcd+NIomCN+qv2fEUL4lFgDShhAt9+Pd7YqOGUVLGTWZRHFr4CFxdH0zDhcBnmasip+07U74PPjoZyA1LSbepm6yxrrm2It8zRFPGdMPo+GUzn+3yNLkO2Zls2m
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRv8Qu91iF6IPGSn7INdlU7BWA4FazkQhBYQ7lwZjJKGkZ5gv5JxuI8S9zgAEQLjo0/kd5u0RwpuCsXuubtM5HfG5BBoNIkAwZCSk1YV1VG4LR6D3cY+P8Q/1hm5QyQkKLMtdu8k9h84cmMjb8JRC0f
       X-Ms-Ratelimit-Remaining-Subscription-Reads:
-      - '14997'
+      - '14982'
       X-Ms-Routing-Request-Id:
-      - WESTUS:20190107T095928Z:166f7e32-7188-4462-b34b-483773f74fdd
+      - WESTUS:20190607T091552Z:c62e2f94-b59f-4778-95cc-e45786e4c909
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
       - nosniff
       Date:
-      - Mon, 07 Jan 2019 09:59:28 GMT
+      - Fri, 07 Jun 2019 09:15:52 GMT
     body:
       encoding: UTF-8
       string: "{\r\n  \"value\": [\r\n    {\r\n      \"name\": \"demoSecurityGroup\",\r\n
@@ -133,5 +133,5 @@ http_interactions:
         \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0\"\r\n
         \         }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
     http_version: 
-  recorded_at: Mon, 07 Jan 2019 10:00:40 GMT
+  recorded_at: Fri, 07 Jun 2019 09:17:08 GMT
 recorded_with: VCR 3.0.3

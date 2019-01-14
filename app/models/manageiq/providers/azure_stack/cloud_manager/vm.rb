@@ -1,5 +1,15 @@
 class ManageIQ::Providers::AzureStack::CloudManager::Vm < ManageIQ::Providers::CloudManager::Vm
 
+  POWER_STATES = {
+    'PowerState/running'      => 'on',
+    'PowerState/starting'     => 'powering_up',
+    'PowerState/stopped'      => 'suspended',
+    'PowerState/stopping'     => 'suspending',
+    'PowerState/deallocated'  => 'off',
+    'PowerState/deallocating' => 'powering_down',
+    'PowerState/unknown'      => 'unknown'
+  }.freeze
+
   def provider_object(connection = nil)
     connection ||= ext_management_system.connect
     # find vm instance via connection and return it
@@ -32,10 +42,8 @@ class ManageIQ::Providers::AzureStack::CloudManager::Vm < ManageIQ::Providers::C
     update_attributes!(:raw_power_state => "suspended")
   end
 
-  # TODO: this method could be the default in a baseclass
   def self.calculate_power_state(raw_power_state)
-    # do some mapping on powerstates
-    # POWER_STATES[raw_power_state.to_s] || "terminated"
-    raw_power_state
+    # https://docs.microsoft.com/en-us/azure/virtual-machines/windows/states-lifecycle
+    POWER_STATES[raw_power_state.to_s] || 'unknown'
   end
 end

@@ -2,6 +2,16 @@ module ManageIQ::Providers::AzureStack::Inventory::Persister::Definitions::Cloud
   extend ActiveSupport::Concern
 
   def initialize_cloud_inventory_collections
+    %i[
+      availability_zones
+      hardwares
+      operating_systems
+      flavors
+      vms
+    ].each do |name|
+      add_collection(cloud, name)
+    end
+
     add_resource_groups
   end
 
