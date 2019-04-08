@@ -1,6 +1,8 @@
 class ManageIQ::Providers::AzureStack::Inventory::Collector < ManageIQ::Providers::Inventory::Collector
   require_nested :CloudManager
 
+  include ManageIQ::Providers::AzureStack::EmsRefMixin
+
   def initialize(manager, refresh_target)
     super(manager, refresh_target)
     @token = nil
@@ -22,18 +24,6 @@ class ManageIQ::Providers::AzureStack::Inventory::Collector < ManageIQ::Provider
     client = yield @token
     @token ||= client.credentials
     client
-  end
-
-  def resource_group_name(ems_ref)
-    if (match = ems_ref.match(%r{/subscriptions/[^/]+/resourceGroups/(?<name>[^/]+)/.+}))
-      match[:name].downcase
-    end
-  end
-
-  def resource_group_id(ems_ref)
-    if (match = ems_ref.match(%r{(?<id>/subscriptions/[^/]+/resourceGroups/[^/]+)/.+}))
-      match[:id].downcase
-    end
   end
 
   def raw_power_state(instance_view)

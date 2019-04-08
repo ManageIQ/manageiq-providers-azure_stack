@@ -1,4 +1,5 @@
 class ManageIQ::Providers::AzureStack::CloudManager::Vm < ManageIQ::Providers::CloudManager::Vm
+  include ManageIQ::Providers::AzureStack::EmsRefMixin
 
   POWER_STATES = {
     'PowerState/running'      => 'on',
@@ -10,37 +11,27 @@ class ManageIQ::Providers::AzureStack::CloudManager::Vm < ManageIQ::Providers::C
     'PowerState/unknown'      => 'unknown'
   }.freeze
 
-  def provider_object(connection = nil)
-    connection ||= ext_management_system.connect
-    # find vm instance via connection and return it
-    # connection.find_instance(ems_ref)
-    # but we return just an object for now
-    OpenStruct.new
-  end
-
   def raw_start
-    with_provider_object(&:start)
-    # Temporarily update state for quick UI response until refresh comes along
-    update_attributes!(:raw_power_state => "on")
+    with_provider_connection(:service => :Compute) do |client|
+      client.virtual_machines.start(resource_group_name(ems_ref), name)
+    end
+    update!(:raw_power_state => 'PowerState/running')
   end
 
   def raw_stop
-    with_provider_object(&:stop)
-    # Temporarily update state for quick UI response until refresh comes along
-    update_attributes!(:raw_power_state => "off")
-  end
-
-  def raw_pause
-    with_provider_object(&:pause)
-    # Temporarily update state for quick UI response until refresh comes along
-    update_attributes!(:raw_power_state => "paused")
+    with_provider_connection(:service => :Compute) do |client|
+      client.virtual_machines.deallocate(resource_group_name(ems_ref), name)
+    end
+    update!(:raw_power_state => 'PowerState/deallocated')
   end
 
   def raw_suspend
-    with_provider_object(&:suspend)
-    # Temporarily update state for quick UI response until refresh comes along
-    update_attributes!(:raw_power_state => "suspended")
+    with_provider_connection(:service => :Compute) do |client|
+      client.virtual_machines.stop(resource_group_name(ems_ref), name)
+    end
+    update!(:raw_power_state => 'PowerState/stopped')
   end
+  alias raw_pause raw_suspend
 
   def self.calculate_power_state(raw_power_state)
     # https://docs.microsoft.com/en-us/azure/virtual-machines/windows/states-lifecycle
