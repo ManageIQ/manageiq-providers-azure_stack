@@ -1,15 +1,20 @@
 language: ruby
 rvm:
-- '2.3.1'
-- '2.4.2'
+  - 2.4.6
+  - 2.5.3
 sudo: false
-cache: bundler
+cache:
+  bundler: true
 env:
   global:
-  - RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
-  - RUBY_GC_HEAP_INIT_SLOTS=600000
-  - RUBY_GC_HEAP_GROWTH_FACTOR=1.25
+    - RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
+    - RUBY_GC_HEAP_INIT_SLOTS=600000
+    - RUBY_GC_HEAP_GROWTH_FACTOR=1.25
+  matrix:
+    - TEST_SUITE=spec
 addons:
-  postgresql: '9.4'
-install: bin/setup
+  postgresql: '10'
+install:
+  - bin/setup
+script: bundle exec rake $TEST_SUITE
 after_script: bundle exec codeclimate-test-reporter
