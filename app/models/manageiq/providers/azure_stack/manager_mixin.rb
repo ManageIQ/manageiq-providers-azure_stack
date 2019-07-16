@@ -17,8 +17,8 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
     ad_settings  = options[:ad_settings]  || active_directory_settings(base_url)
     token        = options[:token]        || nil
 
-    raise _("Unsupported API version: #{api_version}") unless api_version_supported?(api_version)
-    raise _("Unsupported service: #{service}") unless service_supported?(service)
+    raise _("Unsupported API version: %{api_version}") % {:api_version => api_version} unless api_version_supported?(api_version)
+    raise _("Unsupported service: %{service}") % {:service => service} unless service_supported?(service)
 
     # Gem currently delievers no API profile for :Monitor other than :Latest
     api_version = :Latest if service == :Monitor
@@ -132,18 +132,18 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
       end
       result = JSON.parse(response.body)
 
-      raise MiqException::MiqInvalidCredentialsError, _("Bad response from #{log}: #{result}") unless response.success?
+      raise MiqException::MiqInvalidCredentialsError, _("Bad response from %{log}: %{result}") % {:log => log, :result => result} unless response.success?
 
       MsRestAzure::ActiveDirectoryServiceSettings.new.tap do |settings|
         settings.authentication_endpoint = result.dig('authentication', 'loginEndpoint')
         settings.token_audience = result.dig('authentication', 'audiences', 0)
       end
     rescue JSON::ParserError
-      raise MiqException::MiqInvalidCredentialsError, _("Bad response from #{log}")
+      raise MiqException::MiqInvalidCredentialsError, _("Bad response from %{log}") % {:log => log}
     rescue Faraday::ConnectionFailed => err
       msg = err.message
       msg = msg.sub('execution expired', 'Connection timeout') # original timeout message is horrible
-      raise MiqException::MiqInvalidCredentialsError, _("Could not reach #{log}: #{msg}")
+      raise MiqException::MiqInvalidCredentialsError, _("Could not reach %{log}: %{msg}") % {:log => log, :msg => msg}
     end
 
     def token(tenant, username, password, ad_settings)
@@ -163,7 +163,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
         true
       end
     rescue Timeout::Error
-      raise MiqException::MiqInvalidCredentialsError, _("Timeout reached when accessing #{connection.base_url}")
+      raise MiqException::MiqInvalidCredentialsError, _("Timeout reached when accessing %{url}") % {:url => connection.base_url}
     end
 
     def api_connection_timeout
