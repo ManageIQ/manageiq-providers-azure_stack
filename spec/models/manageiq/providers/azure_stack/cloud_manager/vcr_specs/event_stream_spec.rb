@@ -1,6 +1,6 @@
 describe ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Stream do
-  let(:userid)        { Rails.application.secrets.azure_stack.try(:[], 'userid') || 'AZURE_STACK_USERID' }
-  let(:subscription)  { Rails.application.secrets.azure_stack.try(:[], 'subscription') || 'AZURE_STACK_SUBSCRIPTION' }
+  let(:userid)        { Rails.application.secrets.azure_stack.try(:[], :userid) || 'AZURE_STACK_USERID' }
+  let(:subscription)  { Rails.application.secrets.azure_stack.try(:[], :subscription) || 'AZURE_STACK_SUBSCRIPTION' }
   let(:capture_since) { Time.parse('2019-01-07T20:00:00Z').utc }
 
   let!(:ems) do
