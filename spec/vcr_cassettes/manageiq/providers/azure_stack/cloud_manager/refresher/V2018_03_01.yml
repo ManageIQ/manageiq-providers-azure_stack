@@ -482,4 +482,61 @@ http_interactions:
         \ \"name\": \"demoVm\"\r\n}"
     http_version: 
   recorded_at: Fri, 07 Jun 2019 08:59:16 GMT
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourcegroups/demo-resource-group/providers/Microsoft.Resources/deployments/?api-version=2018-02-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.4.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_resources/0.17.2 Profiles/V2018_03_01/Resources/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - 0f18a0dd-c7eb-4b09-9578-86dee7faaf2f
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14985'
+      X-Ms-Request-Id:
+      - 243c7605-ad17-469f-aa9d-57c835bda7a4
+      X-Ms-Correlation-Request-Id:
+      - 243c7605-ad17-469f-aa9d-57c835bda7a4
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20190717T144411Z:243c7605-ad17-469f-aa9d-57c835bda7a4
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Wed, 17 Jul 2019 14:44:10 GMT
+      Content-Length:
+      - '3835'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Resources/deployments/Microsoft.Template","name":"Microsoft.Template","properties":{"templateHash":"9230993225573958921","parameters":{"adminUsername":{"type":"String","value":"demoUsername"},"adminPassword":{"type":"SecureString"},"imagePublisher":{"type":"String","value":"Canonical"},"imageOffer":{"type":"String","value":"UbuntuServer"},"imageSku":{"type":"String","value":"16.04-LTS"},"vmSize":{"type":"String","value":"Standard_A1"}},"mode":"Incremental","debugSetting":{"detailLevel":"RequestContent,
+        ResponseContent"},"provisioningState":"Succeeded","timestamp":"2018-12-21T13:27:43.8650451Z","duration":"PT6M17.6240392S","correlationId":"115af4ea-30ed-4588-8c41-95810e9db431","providers":[{"namespace":"Microsoft.Storage","resourceTypes":[{"resourceType":"storageAccounts","locations":["westus"]}]},{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"networkSecurityGroups","locations":["westus"]},{"resourceType":"virtualNetworks","locations":["westus"]},{"resourceType":"networkInterfaces","locations":["westus"]}]},{"namespace":"Microsoft.Compute","resourceTypes":[{"resourceType":"virtualMachines","locations":["westus"]}]}],"dependencies":[{"dependsOn":[{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demoNetwork","resourceType":"Microsoft.Network/virtualNetworks","resourceName":"demoNetwork"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup","resourceType":"Microsoft.Network/networkSecurityGroups","resourceName":"demoSecurityGroup"}],"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0","resourceType":"Microsoft.Network/networkInterfaces","resourceName":"demoNic0"},{"dependsOn":[{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Storage/storageAccounts/demostorageaccount","resourceType":"Microsoft.Storage/storageAccounts","resourceName":"demostorageaccount"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0","resourceType":"Microsoft.Network/networkInterfaces","resourceName":"demoNic0"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Storage/storageAccounts/demostorageaccount","resourceType":"Microsoft.Storage/storageAccounts","resourceName":"demostorageaccount","apiVersion":"2016-01-01"}],"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm","resourceType":"Microsoft.Compute/virtualMachines","resourceName":"demoVm"}],"outputResources":[{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demoNetwork"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Storage/storageAccounts/demostorageaccount"}],"validationLevel":"Template"}}]}'
+    http_version: 
+  recorded_at: Wed, 17 Jul 2019 14:44:11 GMT
 recorded_with: VCR 3.0.3

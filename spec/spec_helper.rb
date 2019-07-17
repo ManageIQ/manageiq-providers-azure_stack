@@ -12,6 +12,7 @@ VCR.configure do |config|
   config.before_playback do |interaction|
     interaction.filter!('AZURE_STACK_HOST', 'azure_stack_host')
   end
+  config.default_cassette_options = { :match_requests_on => [:method, :path] }
   config.filter_sensitive_data('AZURE_STACK_TOKEN') do |interaction|
     if (auth_header = interaction.request.headers['Authorization'])
       auth_header.first.sub(/^Bearer /, '')
