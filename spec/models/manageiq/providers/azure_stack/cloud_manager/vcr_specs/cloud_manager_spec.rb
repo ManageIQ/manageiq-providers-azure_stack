@@ -1,9 +1,9 @@
 describe ManageIQ::Providers::AzureStack::CloudManager do
-  let(:url)           { "https://#{Rails.application.secrets.azure_stack.try(:[], 'host') || 'AZURE_STACK_HOST'}" }
-  let(:tenant)        { Rails.application.secrets.azure_stack.try(:[], 'tenant') || 'AZURE_STACK_TENANT' }
-  let(:userid)        { Rails.application.secrets.azure_stack.try(:[], 'userid') || 'AZURE_STACK_USERID' }
-  let(:password)      { Rails.application.secrets.azure_stack.try(:[], 'password') || 'AZURE_STACK_PASSWORD' }
-  let(:subscription)  { Rails.application.secrets.azure_stack.try(:[], 'subscription') || 'AZURE_STACK_SUBSCRIPTION' }
+  let(:url)           { "https://#{Rails.application.secrets.azure_stack.try(:[], :host) || 'AZURE_STACK_HOST'}" }
+  let(:tenant)        { Rails.application.secrets.azure_stack.try(:[], :tenant) || 'AZURE_STACK_TENANT' }
+  let(:userid)        { Rails.application.secrets.azure_stack.try(:[], :userid) || 'AZURE_STACK_USERID' }
+  let(:password)      { Rails.application.secrets.azure_stack.try(:[], :password) || 'AZURE_STACK_PASSWORD' }
+  let(:subscription)  { Rails.application.secrets.azure_stack.try(:[], :subscription) || 'AZURE_STACK_SUBSCRIPTION' }
 
   supported_api_versions do |api_version|
     describe '#raw_connect' do
