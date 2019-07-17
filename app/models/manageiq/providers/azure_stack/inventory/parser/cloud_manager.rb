@@ -7,6 +7,7 @@ class ManageIQ::Providers::AzureStack::Inventory::Parser::CloudManager < ManageI
     availability_zones
     flavors
     vms
+    orchestration_stacks
 
     $azure_stack_log.info("#{log_header}...Complete")
   end
@@ -71,8 +72,19 @@ class ManageIQ::Providers::AzureStack::Inventory::Parser::CloudManager < ManageI
         :vm_or_template  => vm_obj,
         :cpu_sockets     => persister.flavors.lazy_find(flavor_ref, :key => :cpu_cores),
         :cpu_total_cores => persister.flavors.lazy_find(flavor_ref, :key => :cpus),
-        :memory_mb       => persister.flavors.find(flavor_ref).memory,
+        :memory_mb       => persister.flavors.find(flavor_ref).memory / 1.megabytes,
         :disk_capacity   => persister.flavors.lazy_find(flavor_ref, :key => :swap_disk_size)
+      )
+    end
+  end
+
+  def orchestration_stacks
+    collector.orchestration_stacks.each do |stack|
+      persister.orchestration_stacks.build(
+        :ems_ref     => stack.id.downcase,
+        :name        => stack.name,
+        :description => stack.name,
+        :status      => stack.properties.provisioning_state
       )
     end
   end

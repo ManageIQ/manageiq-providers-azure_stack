@@ -17,6 +17,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     let(:resource_group)  { ResourceGroup.find_by(:name => 'demo-resource-group') }
     let(:zone)            { AvailabilityZone.find_by(:ems_ref => 'default') }
     let(:vm)              { Vm.find_by(:name => 'demoVm') }
+    let(:stack)           { OrchestrationStack.find_by(:name => 'Microsoft.Template') }
     let(:security_group)  { SecurityGroup.find_by(:name => 'demoSecurityGroup') }
     let(:flavor)          { Flavor.find_by(:ems_ref => 'standard_a1') }
 
@@ -65,6 +66,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     assert_availability_zone
     assert_specific_flavor
     assert_specific_vm
+    assert_specific_orchestration_stack
     assert_security_group
   end
 
@@ -75,6 +77,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     expect(Vm.count).to eq(1)
     expect(Flavor.count).to eq(70)
     expect(SecurityGroup.count).to eq(1)
+    expect(OrchestrationStack.count).to eq(1)
   end
 
   def assert_resource_group
@@ -124,9 +127,15 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     expect(vm.hardware).to have_attributes(
       :cpu_sockets     => 1,
       :cpu_total_cores => 1,
-      :memory_mb       => 1.75.gigabytes.round,
+      :memory_mb       => 1.75.gigabytes.round / 1.megabyte,
       :disk_capacity   => 70.gigabytes.round
     )
+  end
+
+  def assert_specific_orchestration_stack
+    expect(stack).not_to be_nil
+    expect(ems_ref_suffix(stack.ems_ref)).to match(%r{^/providers/microsoft.resources/deployments/[^/]+$})
+    expect(stack).to have_attributes(:status => 'Succeeded', :description => stack.name)
   end
 
   def assert_security_group
