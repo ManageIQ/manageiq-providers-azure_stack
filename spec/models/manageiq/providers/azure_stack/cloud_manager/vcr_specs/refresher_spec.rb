@@ -110,14 +110,15 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     expect(ems_ref_suffix(vm.uid_ems)).to match(%r{^/providers/microsoft.compute/virtualmachines/[^/]+$})
 
     expect(vm).to have_attributes(
-      :vendor            => 'azure_stack',
-      :connection_state  => 'connected',
-      :raw_power_state   => 'PowerState/running',
-      :power_state       => 'on',
-      :location          => 'westus',
-      :availability_zone => zone,
-      :resource_group    => resource_group,
-      :flavor            => flavor
+      :vendor              => 'azure_stack',
+      :connection_state    => 'connected',
+      :raw_power_state     => 'PowerState/running',
+      :power_state         => 'on',
+      :location            => 'westus',
+      :availability_zone   => zone,
+      :resource_group      => resource_group,
+      :flavor              => flavor,
+      :orchestration_stack => stack
     )
 
     expect(vm.operating_system).not_to be_nil
@@ -135,7 +136,11 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
   def assert_specific_orchestration_stack
     expect(stack).not_to be_nil
     expect(ems_ref_suffix(stack.ems_ref)).to match(%r{^/providers/microsoft.resources/deployments/[^/]+$})
-    expect(stack).to have_attributes(:status => 'Succeeded', :description => stack.name)
+    expect(stack).to have_attributes(
+      :status         => 'Succeeded',
+      :description    => stack.name,
+      :resource_group => resource_group.name
+    )
   end
 
   def assert_security_group

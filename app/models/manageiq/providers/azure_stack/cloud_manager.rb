@@ -6,6 +6,7 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
   require_nested :Refresher
   require_nested :RefreshWorker
   require_nested :Vm
+  require_nested :OrchestrationStack
 
   include ManageIQ::Providers::AzureStack::ManagerMixin
 

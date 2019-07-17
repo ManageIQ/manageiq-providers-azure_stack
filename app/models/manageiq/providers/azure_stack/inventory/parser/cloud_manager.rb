@@ -79,13 +79,22 @@ class ManageIQ::Providers::AzureStack::Inventory::Parser::CloudManager < ManageI
   end
 
   def orchestration_stacks
-    collector.orchestration_stacks.each do |stack|
-      persister.orchestration_stacks.build(
-        :ems_ref     => stack.id.downcase,
-        :name        => stack.name,
-        :description => stack.name,
-        :status      => stack.properties.provisioning_state
+    collector.orchestration_stacks.each do |resource_group, deployment, operations|
+      stack = persister.orchestration_stacks.build(
+        :ems_ref        => deployment.id.downcase,
+        :name           => deployment.name,
+        :description    => deployment.name,
+        :status         => deployment.properties.provisioning_state,
+        :resource_group => resource_group.name
       )
+
+      # Connect VMs with orchestration stack.
+      operations.each do |op|
+        next unless (resource = op.properties.target_resource)
+        next unless resource.resource_type.downcase == 'microsoft.compute/virtualmachines'
+
+        persister.vms.find(resource.id.downcase)&.assign_attributes(:orchestration_stack => stack)
+      end
     end
   end
 
