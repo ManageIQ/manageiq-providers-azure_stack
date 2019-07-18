@@ -22,10 +22,16 @@ class ManageIQ::Providers::AzureStack::Inventory::Collector::CloudManager < Mana
   end
 
   def orchestration_stacks
-    resource_groups.map do |group|
+    resource_groups.flat_map do |group|
       # Old API names it 'list', recent versions name it 'list_by_resource_group'
       meth = azure_resources.deployments.respond_to?(:list_by_resource_group) ? :list_by_resource_group : :list
-      azure_resources.deployments.send(meth, group.name)
-    end.flatten
+      azure_resources.deployments.send(meth, group.name).map do |deployment|
+        [
+          group,                                                                   # resource group
+          deployment,                                                              # deployment
+          azure_resources.deployment_operations.list(group.name, deployment.name)  # operations of the deployment
+        ]
+      end
+    end
   end
 end
