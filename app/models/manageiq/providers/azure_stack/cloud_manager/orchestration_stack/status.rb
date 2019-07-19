@@ -1,4 +1,4 @@
-class ManageIQ::Providers::Azure::CloudManager::OrchestrationStack::Status < ::OrchestrationStack::Status
+class ManageIQ::Providers::AzureStack::CloudManager::OrchestrationStack::Status < ::OrchestrationStack::Status
   def succeeded?
     status.downcase == "succeeded"
   end
