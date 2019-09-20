@@ -21,6 +21,10 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     let(:security_group)  { SecurityGroup.find_by(:name => 'demoSecurityGroup') }
     let(:flavor)          { Flavor.find_by(:ems_ref => 'standard_a1') }
 
+    let(:network)         { CloudNetwork.find_by(:name => 'demoNetwork') }
+    let(:subnet)          { CloudSubnet.find_by(:name => 'demoSubnet') }
+    let(:network_port)    { NetworkPort.find_by(:name => 'demoNic0') }
+
     let(:saving_strategy) { :recursive }
     let(:saver_strategy)  { :default }
     let(:use_ar)          { true }
@@ -67,6 +71,9 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     assert_specific_flavor
     assert_specific_vm
     assert_specific_orchestration_stack
+    assert_specific_network
+    assert_specific_subnet
+    assert_specific_network_port
     assert_security_group
   end
 
@@ -76,6 +83,9 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
     expect(AvailabilityZone.count).to eq(1)
     expect(Vm.count).to eq(1)
     expect(Flavor.count).to eq(70)
+    expect(CloudNetwork.count).to eq(1)
+    expect(CloudSubnet.count).to eq(1)
+    expect(NetworkPort.count).to eq(1)
     expect(SecurityGroup.count).to eq(1)
     expect(OrchestrationStack.count).to eq(1)
   end
@@ -141,6 +151,39 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
       :description    => stack.name,
       :resource_group => resource_group.name
     )
+  end
+
+  def assert_specific_network
+    expect(network).not_to be_nil
+    expect(ems_ref_suffix(network.ems_ref)).to match(%r{^/providers/microsoft.network/virtualnetworks/[^/]+$})
+
+    expect(network.cloud_subnets).not_to be_nil
+    expect(network.cloud_subnets.size).to eq(1)
+  end
+
+  def assert_specific_subnet
+    expect(subnet).not_to be_nil
+    expect(ems_ref_suffix(subnet.ems_ref)).to match(%r{^/providers/microsoft.network/virtualnetworks/[^/]+/subnets/[^/]+$})
+
+    expect(subnet.cloud_network).to eq(network)
+
+    assert_security_groups_binding(subnet)
+  end
+
+  def assert_specific_network_port
+    expect(network_port).not_to be_nil
+    expect(ems_ref_suffix(network_port.ems_ref)).to match(%r{^/providers/microsoft.network/networkinterfaces/[^/]+$})
+    expect(network_port.mac_address).to eq('001DD8B70047')
+
+    expect(network_port.device).to eq(vm)
+
+    assert_security_groups_binding(network_port)
+  end
+
+  def assert_security_groups_binding(entity)
+    expect(entity.security_groups).not_to be_nil
+    expect(entity.security_groups.size).to eq(1)
+    expect(entity.security_groups.first).to eq(security_group)
   end
 
   def assert_security_group
