@@ -8,4 +8,12 @@ class ManageIQ::Providers::AzureStack::Inventory < ManageIQ::Providers::Inventor
   def self.default_manager_name
     'CloudManager'
   end
+
+  # Sets the appropriate class of versioned collector for
+  # CloudManager and NetworkManager targets
+  def self.collector_class_for(ems, target = nil, manager_name = nil)
+    target = ems if target.nil?
+    manager_name = "#{target.class.name.demodulize}::#{ems.api_version}" if manager_name.nil?
+    class_for(ems, target, 'Collector', manager_name)
+  end
 end
