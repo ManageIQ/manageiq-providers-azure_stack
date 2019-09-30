@@ -156,6 +156,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
   def assert_specific_network
     expect(network).not_to be_nil
     expect(ems_ref_suffix(network.ems_ref)).to match(%r{^/providers/microsoft.network/virtualnetworks/[^/]+$})
+    expect(network.resource_group).to eq(resource_group)
 
     expect(network.cloud_subnets).not_to be_nil
     expect(network.cloud_subnets.size).to eq(1)
@@ -173,9 +174,11 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
   def assert_specific_network_port
     expect(network_port).not_to be_nil
     expect(ems_ref_suffix(network_port.ems_ref)).to match(%r{^/providers/microsoft.network/networkinterfaces/[^/]+$})
-    expect(network_port.mac_address).to eq('001DD8B70047')
-
-    expect(network_port.device).to eq(vm)
+    expect(network_port).to have_attributes(
+      :resource_group => resource_group,
+      :mac_address    => '001DD8B70047',
+      :device         => vm
+    )
 
     assert_security_groups_binding(network_port)
   end
@@ -189,5 +192,6 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
   def assert_security_group
     expect(security_group).not_to be_nil
     expect(ems_ref_suffix(security_group.ems_ref)).to match(%r{^/providers/microsoft.network/networksecuritygroups/[^/]+$})
+    expect(security_group.resource_group).to eq(resource_group)
   end
 end

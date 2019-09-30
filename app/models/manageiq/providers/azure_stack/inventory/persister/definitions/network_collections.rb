@@ -9,11 +9,18 @@ module ManageIQ::Providers::AzureStack::Inventory::Persister::Definitions::Netwo
       add_collection(network, name)
     end
 
-    add_collection(cloud, :vms) do |builder|
-      builder.add_properties(
-        :parent   => manager.parent_manager,
-        :strategy => :local_db_find_references
-      )
+    add_related_cloud_collections
+  end
+
+  def add_related_cloud_collections
+    %i[resource_groups
+       vms].each do |name|
+      add_collection(cloud, name) do |builder|
+        builder.add_properties(
+          :parent   => manager.parent_manager,
+          :strategy => :local_db_find_references
+        )
+      end
     end
   end
 end
