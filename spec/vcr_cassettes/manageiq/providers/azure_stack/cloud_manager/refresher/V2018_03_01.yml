@@ -330,63 +330,7 @@ http_interactions:
   recorded_at: Fri, 07 Jun 2019 08:59:14 GMT
 - request:
     method: get
-    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resources?$filter=resourceType%20eq%20%27Microsoft.Compute/virtualMachines%27&api-version=2018-02-01
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Ruby/2.4.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
-        azure_mgmt_resources/0.17.2 Profiles/V2018_03_01/Resources/Mgmt
-      Content-Type:
-      - application/json; charset=utf-8
-      Accept:
-      - application/json
-      Accept-Language:
-      - en-US
-      X-Ms-Client-Request-Id:
-      - ae7486ef-53d5-49fa-b552-51ae468c9e4b
-      Authorization:
-      - Bearer AZURE_STACK_TOKEN
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - no-cache
-      Pragma:
-      - no-cache
-      Content-Type:
-      - application/json; charset=utf-8
-      Expires:
-      - "-1"
-      X-Ms-Ratelimit-Remaining-Subscription-Reads:
-      - '14990'
-      X-Ms-Request-Id:
-      - 0ffa79b8-7e72-4c05-a54b-0af2938bd246
-      X-Ms-Correlation-Request-Id:
-      - 0ffa79b8-7e72-4c05-a54b-0af2938bd246
-      X-Ms-Routing-Request-Id:
-      - WESTUS:20190607T085759Z:0ffa79b8-7e72-4c05-a54b-0af2938bd246
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      Date:
-      - Fri, 07 Jun 2019 08:57:59 GMT
-      Content-Length:
-      - '237'
-    body:
-      encoding: UTF-8
-      string: '{"value":[{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm","name":"demoVm","type":"Microsoft.Compute/virtualMachines","location":"westus"}]}'
-    http_version: 
-  recorded_at: Fri, 07 Jun 2019 08:59:15 GMT
-- request:
-    method: get
-    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm?$expand=instanceView&api-version=2017-03-30
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/providers/Microsoft.Compute/virtualMachines?api-version=2017-03-30
     body:
       encoding: US-ASCII
       string: ''
@@ -401,7 +345,7 @@ http_interactions:
       Accept-Language:
       - en-US
       X-Ms-Client-Request-Id:
-      - 13e3f87d-0122-417d-bb29-f23fdd7fd22b
+      - d96156aa-f479-412a-9b1a-65dd8344ff44
       Authorization:
       - Bearer AZURE_STACK_TOKEN
       Accept-Encoding:
@@ -416,7 +360,7 @@ http_interactions:
       Pragma:
       - no-cache
       Content-Length:
-      - '3317'
+      - '1750'
       Content-Type:
       - application/json; charset=utf-8
       Expires:
@@ -426,62 +370,125 @@ http_interactions:
       X-Ms-Served-By:
       - 00000000-0000-0000-0000-000000000000_0
       X-Ms-Correlation-Request-Id:
-      - 4e804275-2ea6-4943-a062-3171538af50d
+      - d83655f1-1183-4f36-b6c0-efeaf095ab2e
       Server:
       - Microsoft-HTTPAPI/2.0
       Www-Authenticate:
-      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRv6N0qgwe9ruZIktMuGFYwABdz7oOpraysDUKKVKyyT63jbF57WJidc1y3+XzwctpBq9xfTuqt4792ptJdwOhRciL7qEOUAepAmq7r+TWGqrUvpxW8g1CaGqlQyrj2cpyYi9seH62KBh1sjYv+bHxc
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRv5uB6FuLYr4yxA8K+jiGVgYno6BdR9KvBr1l3oGbyoCG97lNcDseSq3WjA0kXouesPL8rCTy8ZB4oWcJ7n9+Yh3J+g3UQ7LLf8anfVDtWIr2C3ulk6zLufxXC7N46SZsIWuIuKk9Y1B7voWSjKgI+
       X-Ms-Ratelimit-Remaining-Subscription-Reads:
-      - '14989'
+      - '14831'
       X-Ms-Request-Id:
-      - 4e804275-2ea6-4943-a062-3171538af50d
+      - d83655f1-1183-4f36-b6c0-efeaf095ab2e
       X-Ms-Routing-Request-Id:
-      - WESTUS:20190607T085800Z:4e804275-2ea6-4943-a062-3171538af50d
+      - WESTUS:20190927T060241Z:d83655f1-1183-4f36-b6c0-efeaf095ab2e
       X-Content-Type-Options:
       - nosniff
       Date:
-      - Fri, 07 Jun 2019 08:57:59 GMT
+      - Fri, 27 Sep 2019 06:02:41 GMT
     body:
       encoding: UTF-8
-      string: "{\r\n  \"properties\": {\r\n    \"vmId\": \"adbd038a-aa9d-4145-b5b6-eaa5dfe76a7c\",\r\n
-        \   \"hardwareProfile\": {\r\n      \"vmSize\": \"Standard_A1\"\r\n    },\r\n
-        \   \"storageProfile\": {\r\n      \"imageReference\": {\r\n        \"publisher\":
-        \"Canonical\",\r\n        \"offer\": \"UbuntuServer\",\r\n        \"sku\":
-        \"16.04-LTS\",\r\n        \"version\": \"latest\"\r\n      },\r\n      \"osDisk\":
-        {\r\n        \"osType\": \"Linux\",\r\n        \"name\": \"osdisk\",\r\n        \"createOption\":
-        \"FromImage\",\r\n        \"vhd\": {\r\n          \"uri\": \"https://demostorageaccount.blob.westus.AZURE_STACK_DOMAIN/vhds/osdisk.vhd\"\r\n
-        \       },\r\n        \"caching\": \"ReadWrite\"\r\n      },\r\n      \"dataDisks\":
-        []\r\n    },\r\n    \"osProfile\": {\r\n      \"computerName\": \"demoVm\",\r\n
-        \     \"adminUsername\": \"demoUsername\",\r\n      \"linuxConfiguration\":
-        {\r\n        \"disablePasswordAuthentication\": false\r\n      },\r\n      \"secrets\":
-        []\r\n    },\r\n    \"networkProfile\": {\"networkInterfaces\":[{\"id\":\"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0\"}]},\r\n
-        \   \"diagnosticsProfile\": {\r\n      \"bootDiagnostics\": {\r\n        \"enabled\":
-        true,\r\n        \"storageUri\": \"https://demostorageaccount.blob.westus.AZURE_STACK_DOMAIN/\"\r\n
-        \     }\r\n    },\r\n    \"provisioningState\": \"Failed\",\r\n    \"instanceView\":
-        {\r\n      \"rdpThumbPrint\": \"SHA2565VQmHkpw0l6AXXK2KWJVMVxmkO3kzsyAqWd9RVUsPj8\",\r\n
-        \     \"vmAgent\": {\r\n        \"vmAgentVersion\": \"2.2.35.1\",\r\n        \"statuses\":
-        [\r\n          {\r\n            \"code\": \"ProvisioningState/Succeeded\",\r\n
-        \           \"level\": \"Info\",\r\n            \"displayStatus\": \"Ready\",\r\n
-        \           \"message\": \"Guest Agent is running\",\r\n            \"time\":
-        \"2019-06-07T08:58:00+00:00\"\r\n          }\r\n        ],\r\n        \"extensionHandlers\":
-        []\r\n      },\r\n      \"disks\": [\r\n        {\r\n          \"name\": \"osdisk\",\r\n
-        \         \"statuses\": [\r\n            {\r\n              \"code\": \"ProvisioningState/Succeeded\",\r\n
-        \             \"level\": \"Info\",\r\n              \"displayStatus\": \"Provisioning
-        Succeeded\",\r\n              \"time\": \"2019-01-08T15:29:36.6601291+00:00\"\r\n
-        \           }\r\n          ]\r\n        }\r\n      ],\r\n      \"bootDiagnostics\":
-        {\r\n        \"consoleScreenshotBlobUri\": \"https://demostorageaccount.blob.westus.AZURE_STACK_DOMAIN/bootdiagnostics-demovm-adbd038a-aa9d-4145-b5b6-eaa5dfe76a7c/demoVm.adbd038a-aa9d-4145-b5b6-eaa5dfe76a7c.screenshot.bmp\",\r\n
-        \       \"serialConsoleLogBlobUri\": \"https://demostorageaccount.blob.westus.AZURE_STACK_DOMAIN/bootdiagnostics-demovm-adbd038a-aa9d-4145-b5b6-eaa5dfe76a7c/demoVm.adbd038a-aa9d-4145-b5b6-eaa5dfe76a7c.serialconsole.log\"\r\n
-        \     },\r\n      \"statuses\": [\r\n        {\r\n          \"code\": \"ProvisioningState/failed/InternalExecutionError/osProvisioningComplete\",\r\n
-        \         \"level\": \"Error\",\r\n          \"displayStatus\": \"OS provisioning
-        complete\",\r\n          \"message\": \"Failed to achieve desired power state
-        'PoweredOff' for VM 'demoVm'\",\r\n          \"time\": \"2019-01-11T14:57:23.8444628+00:00\"\r\n
-        \       },\r\n        {\r\n          \"code\": \"PowerState/running\",\r\n
-        \         \"level\": \"Info\",\r\n          \"displayStatus\": \"VM running\"\r\n
-        \       }\r\n      ]\r\n    }\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachines\",\r\n
-        \ \"location\": \"westus\",\r\n  \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm\",\r\n
-        \ \"name\": \"demoVm\"\r\n}"
-    http_version: 
-  recorded_at: Fri, 07 Jun 2019 08:59:16 GMT
+      string: "{\r\n  \"value\": [\r\n    {\r\n      \"properties\": {\r\n        \"vmId\":
+        \"bbb63335-1cde-4a3d-a805-8032670929c9\",\r\n        \"hardwareProfile\":
+        {\r\n          \"vmSize\": \"Standard_A1\"\r\n        },\r\n        \"storageProfile\":
+        {\r\n          \"imageReference\": {\r\n            \"publisher\": \"Canonical\",\r\n
+        \           \"offer\": \"UbuntuServer\",\r\n            \"sku\": \"16.04-LTS\",\r\n
+        \           \"version\": \"latest\"\r\n          },\r\n          \"osDisk\":
+        {\r\n            \"osType\": \"Linux\",\r\n            \"name\": \"osdisk\",\r\n
+        \           \"createOption\": \"FromImage\",\r\n            \"vhd\": {\r\n
+        \             \"uri\": \"https://demostorageaccount.blob.westus.stackpoc.com/vhds/osdisk.vhd\"\r\n
+        \           },\r\n            \"caching\": \"ReadWrite\",\r\n            \"diskSizeGB\":
+        30\r\n          },\r\n          \"dataDisks\": []\r\n        },\r\n        \"osProfile\":
+        {\r\n          \"computerName\": \"demoVm\",\r\n          \"adminUsername\":
+        \"demoUsername\",\r\n          \"linuxConfiguration\": {\r\n            \"disablePasswordAuthentication\":
+        false\r\n          },\r\n          \"secrets\": []\r\n        },\r\n        \"networkProfile\":
+        {\"networkInterfaces\":[{\"id\":\"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0\"}]},\r\n
+        \       \"diagnosticsProfile\": {\r\n          \"bootDiagnostics\": {\r\n
+        \           \"enabled\": true,\r\n            \"storageUri\": \"https://demostorageaccount.blob.westus.stackpoc.com/\"\r\n
+        \         }\r\n        },\r\n        \"provisioningState\": \"Succeeded\"\r\n
+        \     },\r\n      \"type\": \"Microsoft.Compute/virtualMachines\",\r\n      \"location\":
+        \"westus\",\r\n      \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/DEMO-RESOURCE-GROUP/providers/Microsoft.Compute/virtualMachines/demoVm\",\r\n
+        \     \"name\": \"demoVm\"\r\n    }\r\n  ]\r\n}"
+    http_version:
+  recorded_at: Fri, 27 Sep 2019 06:02:41 GMT
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm/instanceView?api-version=2017-03-30
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.4.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_compute/0.18.3 Profiles/V2018_03_01/Compute/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - '0080b4c7-ebe9-4559-a373-fecb3c286ea8'
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1498'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Ms-Served-By:
+      - 00000000-0000-0000-0000-000000000000_0
+      X-Ms-Correlation-Request-Id:
+      - fbb43540-5e92-47a8-a749-017447a06e02
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Www-Authenticate:
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvOOU5Z7yUunqS6D+M2JVptx5/E7dUsDyu75K/P/1qvgTu3kfvaNmVPxp+BdoTHwEOCrP+LnlCH+7Qgr5JiKSeokuC/JActHYO4V2n6gQd5CVMkN6zwfKG0nsA43Cqdkk/oNGOx9JdXWdnUOvRgIE3
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14830'
+      X-Ms-Request-Id:
+      - fbb43540-5e92-47a8-a749-017447a06e02
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20190927T060243Z:fbb43540-5e92-47a8-a749-017447a06e02
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Fri, 27 Sep 2019 06:02:43 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"rdpThumbPrint\": \"SHA2561rzyTWuCzcvUBomEkPl8mmiNjA2uKTJM3JLqUeop8GA\",\r\n
+        \ \"vmAgent\": {\r\n    \"vmAgentVersion\": \"2.2.38.0\",\r\n    \"statuses\":
+        [\r\n      {\r\n        \"code\": \"ProvisioningState/Succeeded\",\r\n        \"level\":
+        \"Info\",\r\n        \"displayStatus\": \"Ready\",\r\n        \"message\":
+        \"Guest Agent is running\",\r\n        \"time\": \"2019-09-27T06:02:43+00:00\"\r\n
+        \     }\r\n    ],\r\n    \"extensionHandlers\": []\r\n  },\r\n  \"disks\":
+        [\r\n    {\r\n      \"name\": \"osdisk\",\r\n      \"statuses\": [\r\n        {\r\n
+        \         \"code\": \"ProvisioningState/Succeeded\",\r\n          \"level\":
+        \"Info\",\r\n          \"displayStatus\": \"Provisioning Succeeded\",\r\n
+        \         \"time\": \"2019-09-27T05:44:51.9915138+00:00\"\r\n        }\r\n
+        \     ]\r\n    }\r\n  ],\r\n  \"bootDiagnostics\": {\r\n    \"consoleScreenshotBlobUri\":
+        \"https://demostorageaccount.blob.westus.stackpoc.com/bootdiagnostics-demovm-bbb63335-1cde-4a3d-a805-8032670929c9/demoVm.bbb63335-1cde-4a3d-a805-8032670929c9.screenshot.bmp\",\r\n
+        \   \"serialConsoleLogBlobUri\": \"https://demostorageaccount.blob.westus.stackpoc.com/bootdiagnostics-demovm-bbb63335-1cde-4a3d-a805-8032670929c9/demoVm.bbb63335-1cde-4a3d-a805-8032670929c9.serialconsole.log\"\r\n
+        \ },\r\n  \"statuses\": [\r\n    {\r\n      \"code\": \"ProvisioningState/Succeeded/osProvisioningComplete\",\r\n
+        \     \"level\": \"Info\",\r\n      \"displayStatus\": \"OS provisioning complete\",\r\n
+        \     \"time\": \"2019-09-27T05:49:17.2926298+00:00\"\r\n    },\r\n    {\r\n
+        \     \"code\": \"PowerState/running\",\r\n      \"level\": \"Info\",\r\n
+        \     \"displayStatus\": \"VM running\"\r\n    }\r\n  ]\r\n}"
+    http_version:
+  recorded_at: Fri, 27 Sep 2019 06:02:44 GMT
 - request:
     method: get
     uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourcegroups/demo-resource-group/providers/Microsoft.Resources/deployments/?api-version=2018-02-01

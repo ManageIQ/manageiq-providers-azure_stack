@@ -6,7 +6,8 @@ class ManageIQ::Providers::AzureStack::NetworkManager < ManageIQ::Providers::Net
   require_nested :NetworkPort
   require_nested :SecurityGroup
 
-  delegate :authentication_check,
+  delegate :api_version,
+           :authentication_check,
            :authentication_status,
            :authentication_status_ok?,
            :authentications,

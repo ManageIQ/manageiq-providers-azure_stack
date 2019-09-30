@@ -1,4 +1,9 @@
+# This class contains a reference implementation of collector for CloudManager.
+# The methods implemented here are completely aligned with the V2018_03_01 version profile.
 class ManageIQ::Providers::AzureStack::Inventory::Collector::CloudManager < ManageIQ::Providers::AzureStack::Inventory::Collector
+  require_nested :V2018_03_01
+  require_nested :V2017_03_09
+
   def resource_groups
     @resource_groups ||= azure_resources.resource_groups.list
   end
@@ -8,24 +13,15 @@ class ManageIQ::Providers::AzureStack::Inventory::Collector::CloudManager < Mana
   end
 
   def vms
-    if azure_compute.respond_to?(:instance_view)
-      $azure_stack_log.debug("Fetching VMs, then fetching instance view for each")
-      azure_compute.virtual_machines.list_all.each do |vm|
-        vm.instance_view = azure_compute.virtual_machines.instance_view(resource_group_name(vm.id), vm.name)
-      end
-    else
-      $azure_stack_log.debug("Fetching VM ids, then fetching full data for each")
-      azure_resources.resources.list(:filter => "resourceType eq 'Microsoft.Compute/virtualMachines'").map do |vm|
-        azure_compute.virtual_machines.get(resource_group_name(vm.id), vm.name, :expand => 'instanceView')
-      end
+    $azure_stack_log.debug("Fetching VMs, then fetching instance view for each")
+    azure_compute.virtual_machines.list_all.each do |vm|
+      vm.instance_view = azure_compute.virtual_machines.instance_view(resource_group_name(vm.id), vm.name)
     end
   end
 
   def orchestration_stacks
     resource_groups.flat_map do |group|
-      # Old API names it 'list', recent versions name it 'list_by_resource_group'
-      meth = azure_resources.deployments.respond_to?(:list_by_resource_group) ? :list_by_resource_group : :list
-      azure_resources.deployments.send(meth, group.name).map do |deployment|
+      azure_resources.deployments.list_by_resource_group(group.name).map do |deployment|
         [
           group,                                                                   # resource group
           deployment,                                                              # deployment
