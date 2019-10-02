@@ -79,6 +79,66 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
   end
 
   module ClassMethods
+    def params_for_create
+      @params_for_create ||= {
+        :title  => "Configure Azure Stack",
+        :fields => [
+          {
+            :component  => "text-field",
+            :name       => "endpoints.default.base_url",
+            :label      => "URL",
+            :isRequired => true,
+            :validate   => [{:type => "required-validator"}]
+          },
+          {
+            :component  => "text-field",
+            :name       => "endpoints.default.tenant",
+            :label      => "Tenant",
+            :isRequired => true,
+            :validate   => [{:type => "required-validator"}]
+          },
+          {
+            :component => "text-field",
+            :name      => "endpoints.default.username",
+            :label     => "Username",
+            :isRequired => true,
+            :validate   => [{:type => "required-validator"}]
+          },
+          {
+            :component  => "text-field",
+            :name       => "endpoints.default.password",
+            :label      => "Password",
+            :type       => "password",
+            :isRequired => true,
+            :validate   => [{:type => "required-validator"}]
+          },
+          {
+            :component  => "text-field",
+            :name       => "endpoints.default.subscription",
+            :label      => "Subscription",
+            :isRequired => true,
+            :validate   => [{:type => "required-validator"}]
+          },
+          {
+            :component  => "text-field",
+            :name       => "endpoints.default.api_version",
+            :label      => "API Version",
+            :isRequired => true,
+            :validate   => [{:type => "required-validator"}]
+          }
+        ]
+      }.freeze
+    end
+
+    def verify_credentials(args)
+      default_endpoint = args.dig("endpoints", "default")
+      base_url, tenant, username, password, subscription, api_version = default_endpoint.values_at(
+        "base_url", "tenant", "username", "password", "subscription", "api_version"
+      )
+
+      !!raw_connect(base_url, tenant, username, password, subscription, :Resources, api_version, :validate => true)
+    end
+
     def raw_connect(base_url, tenant, username, password, subscription, service, api_version, ad_settings: nil, token: nil, validate: false)
       require 'ms_rest_azure'
       require 'azure_mgmt_resources'
