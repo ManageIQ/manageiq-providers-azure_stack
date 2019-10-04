@@ -2,14 +2,17 @@ module ManageIQ::Providers::AzureStack::Inventory::Persister::Definitions::Netwo
   extend ActiveSupport::Concern
 
   def initialize_network_inventory_collections
+    add_network_collections
+    add_related_cloud_collections
+  end
+
+  def add_network_collections
     %i[cloud_networks
        cloud_subnets
        network_ports
        security_groups].each do |name|
       add_collection(network, name)
     end
-
-    add_related_cloud_collections
   end
 
   def add_related_cloud_collections
