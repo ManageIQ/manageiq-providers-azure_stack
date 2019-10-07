@@ -7,6 +7,7 @@ module ManageIQ::Providers::AzureStack::Inventory::Persister::Definitions::Cloud
       hardwares
       operating_systems
       flavors
+      miq_templates
       vms
       orchestration_stacks
     ].each do |name|

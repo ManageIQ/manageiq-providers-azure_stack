@@ -42,8 +42,10 @@
 :ems_refresh:
   :azure_stack:
     :inventory_object_refresh: true
+    :allow_targeted_refresh: true
   :azure_stack_network:
     :inventory_object_refresh: true
+    :allow_targeted_refresh: true
 
 :workers:
   :worker_base:

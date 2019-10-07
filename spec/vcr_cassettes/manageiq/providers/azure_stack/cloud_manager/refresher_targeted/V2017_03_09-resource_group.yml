@@ -1,0 +1,504 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourcegroups/demo-resource-group?api-version=2016-02-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.5.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_resources/0.17.2 Profiles/V2017_03_09/Resources/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - b03924ee-fa4e-4450-b9a5-77c1c6f1a840
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14993'
+      X-Ms-Request-Id:
+      - abde81ac-50bd-4963-9586-5a6b40acf229
+      X-Ms-Correlation-Request-Id:
+      - abde81ac-50bd-4963-9586-5a6b40acf229
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20191007T054031Z:abde81ac-50bd-4963-9586-5a6b40acf229
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 07 Oct 2019 05:40:31 GMT
+      Content-Length:
+      - '191'
+    body:
+      encoding: UTF-8
+      string: '{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group","name":"demo-resource-group","location":"westus","properties":{"provisioningState":"Succeeded"}}'
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 05:40:31 GMT
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/resources?api-version=2016-02-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.5.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_resources/0.17.2 Profiles/V2017_03_09/Resources/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - 8e3b54b9-7976-4da2-a6d3-abac7c4b440f
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14992'
+      X-Ms-Request-Id:
+      - 4458929e-2b41-4924-8511-1210ff9ee449
+      X-Ms-Correlation-Request-Id:
+      - 4458929e-2b41-4924-8511-1210ff9ee449
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20191007T054031Z:4458929e-2b41-4924-8511-1210ff9ee449
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 07 Oct 2019 05:40:31 GMT
+      Content-Length:
+      - '1219'
+    body:
+      encoding: UTF-8
+      string: '{"value":[{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm","name":"demoVm","type":"Microsoft.Compute/virtualMachines","location":"westus"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0","name":"demoNic0","type":"Microsoft.Network/networkInterfaces","location":"westus"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup","name":"demoSecurityGroup","type":"Microsoft.Network/networkSecurityGroups","location":"westus"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demoNetwork","name":"demoNetwork","type":"Microsoft.Network/virtualNetworks","location":"westus"},{"id":"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Storage/storageaccounts/demostorageaccount","name":"demostorageaccount","type":"Microsoft.Storage/storageaccounts","location":"westus"}]}'
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 05:40:31 GMT
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demovm?$expand=instanceView&api-version=2016-03-30
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.5.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_compute/0.18.3 Profiles/V2017_03_09/Compute/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - 42433a53-e029-423e-b8d5-ac31462aa823
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '3237'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Ms-Served-By:
+      - 00000000-0000-0000-0000-000000000000_0
+      X-Ms-Correlation-Request-Id:
+      - 8dccf9ff-532f-46b6-af65-af71ec0e9ac1
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Www-Authenticate:
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvXPCgS47jIOFrHStpkde+C3LeryfNRFqimjyIynDAmrb5lmOqLTVRQosjkD2xUHVbhB3uD6EmrOsJS2UjLcIUaM2aienmlnBFxRUJyN2m77p7E/zVfD5Ql6rF4kzY02AYC2dSXx21FojIcnqntf1Y
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14991'
+      X-Ms-Request-Id:
+      - 8dccf9ff-532f-46b6-af65-af71ec0e9ac1
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20191007T054033Z:8dccf9ff-532f-46b6-af65-af71ec0e9ac1
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 07 Oct 2019 05:40:33 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"properties\": {\r\n    \"vmId\": \"a883712d-c83b-46bf-996a-e1fd9249db4b\",\r\n
+        \   \"hardwareProfile\": {\r\n      \"vmSize\": \"Standard_A1\"\r\n    },\r\n
+        \   \"storageProfile\": {\r\n      \"imageReference\": {\r\n        \"publisher\":
+        \"Canonical\",\r\n        \"offer\": \"UbuntuServer\",\r\n        \"sku\":
+        \"16.04-LTS\",\r\n        \"version\": \"latest\"\r\n      },\r\n      \"osDisk\":
+        {\r\n        \"osType\": \"Linux\",\r\n        \"name\": \"osdisk\",\r\n        \"createOption\":
+        \"FromImage\",\r\n        \"vhd\": {\r\n          \"uri\": \"https://demostorageaccount.blob.westus.stackpoc.com/vhds/osdisk.vhd\"\r\n
+        \       },\r\n        \"caching\": \"ReadWrite\",\r\n        \"diskSizeGB\":
+        30\r\n      },\r\n      \"dataDisks\": []\r\n    },\r\n    \"osProfile\":
+        {\r\n      \"computerName\": \"demoVm\",\r\n      \"adminUsername\": \"demoUsername\",\r\n
+        \     \"linuxConfiguration\": {\r\n        \"disablePasswordAuthentication\":
+        false\r\n      },\r\n      \"secrets\": []\r\n    },\r\n    \"networkProfile\":
+        {\"networkInterfaces\":[{\"id\":\"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0\"}]},\r\n
+        \   \"diagnosticsProfile\": {\r\n      \"bootDiagnostics\": {\r\n        \"enabled\":
+        true,\r\n        \"storageUri\": \"https://demostorageaccount.blob.westus.stackpoc.com/\"\r\n
+        \     }\r\n    },\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"instanceView\":
+        {\r\n      \"rdpThumbPrint\": \"SHA256XHAe/JzGhoNXWT09f3959tnBCeWXJsEacg3ezfBD/M8\",\r\n
+        \     \"vmAgent\": {\r\n        \"vmAgentVersion\": \"2.2.38.0\",\r\n        \"statuses\":
+        [\r\n          {\r\n            \"code\": \"ProvisioningState/Succeeded\",\r\n
+        \           \"level\": \"Info\",\r\n            \"displayStatus\": \"Ready\",\r\n
+        \           \"message\": \"Guest Agent is running\",\r\n            \"time\":
+        \"2019-10-07T05:40:33+00:00\"\r\n          }\r\n        ],\r\n        \"extensionHandlers\":
+        []\r\n      },\r\n      \"disks\": [\r\n        {\r\n          \"name\": \"osdisk\",\r\n
+        \         \"statuses\": [\r\n            {\r\n              \"code\": \"ProvisioningState/Succeeded\",\r\n
+        \             \"level\": \"Info\",\r\n              \"displayStatus\": \"Provisioning
+        Succeeded\",\r\n              \"time\": \"2019-10-06T18:24:30.678712+00:00\"\r\n
+        \           }\r\n          ]\r\n        }\r\n      ],\r\n      \"bootDiagnostics\":
+        {\r\n        \"consoleScreenshotBlobUri\": \"https://demostorageaccount.blob.westus.stackpoc.com/bootdiagnostics-demovm-a883712d-c83b-46bf-996a-e1fd9249db4b/demoVm.a883712d-c83b-46bf-996a-e1fd9249db4b.screenshot.bmp\",\r\n
+        \       \"serialConsoleLogBlobUri\": \"https://demostorageaccount.blob.westus.stackpoc.com/bootdiagnostics-demovm-a883712d-c83b-46bf-996a-e1fd9249db4b/demoVm.a883712d-c83b-46bf-996a-e1fd9249db4b.serialconsole.log\"\r\n
+        \     },\r\n      \"statuses\": [\r\n        {\r\n          \"code\": \"ProvisioningState/Succeeded/osProvisioningComplete\",\r\n
+        \         \"level\": \"Info\",\r\n          \"displayStatus\": \"OS provisioning
+        complete\",\r\n          \"time\": \"2019-10-06T18:29:22.6892294+00:00\"\r\n
+        \       },\r\n        {\r\n          \"code\": \"PowerState/running\",\r\n
+        \         \"level\": \"Info\",\r\n          \"displayStatus\": \"VM running\"\r\n
+        \       }\r\n      ]\r\n    }\r\n  },\r\n  \"type\": \"Microsoft.Compute/virtualMachines\",\r\n
+        \ \"location\": \"westus\",\r\n  \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm\",\r\n
+        \ \"name\": \"demoVm\"\r\n}"
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 05:40:33 GMT
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demonetwork?api-version=2015-06-15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.5.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_network/0.18.2 Profiles/V2017_03_09/Network/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - a59227c9-2f03-4fd9-b6fe-82004da0db47
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1528'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Etag:
+      - W/"a63b2c13-7037-447f-bdb3-f76125960d7c"
+      X-Ms-Correlation-Request-Id:
+      - 6b78c619-24af-4915-ae7b-a813b020dc3b
+      X-Ms-Request-Id:
+      - 02d9300e-8758-4317-8cbd-a586bda61fd1
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Www-Authenticate:
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvhDD7SWtLjujAxKvQl+dp+M6nLhjrYApSdLHKkwHsZePcEjYQtkI2ZkJnnX7qPhjaIK7tRqy0L8s3fWCQwbJoRXFV8p8PdKtyuYcl2y0zjlHQoxRKYlHMJOfvX7mCHRyrHfquUKTftS/LSZBj/WlF
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14990'
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20191007T054033Z:6b78c619-24af-4915-ae7b-a813b020dc3b
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 07 Oct 2019 05:40:33 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"name\": \"demoNetwork\",\r\n  \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demoNetwork\",\r\n
+        \ \"etag\": \"W/\\\"a63b2c13-7037-447f-bdb3-f76125960d7c\\\"\",\r\n  \"type\":
+        \"Microsoft.Network/virtualNetworks\",\r\n  \"location\": \"westus\",\r\n
+        \ \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\":
+        \"22e09ae9-5328-49ea-94ed-8b6a0542619e\",\r\n    \"addressSpace\": {\r\n      \"addressPrefixes\":
+        [\r\n        \"10.0.0.0/24\"\r\n      ]\r\n    },\r\n    \"subnets\": [\r\n
+        \     {\r\n        \"name\": \"demoSubnet\",\r\n        \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demoNetwork/subnets/demoSubnet\",\r\n
+        \       \"etag\": \"W/\\\"a63b2c13-7037-447f-bdb3-f76125960d7c\\\"\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"addressPrefix\": \"10.0.0.0/24\",\r\n          \"networkSecurityGroup\":
+        {\r\n            \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup\"\r\n
+        \         },\r\n          \"ipConfigurations\": [\r\n            {\r\n              \"id\":
+        \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0/ipConfigurations/ipconfig1\"\r\n
+        \           }\r\n          ]\r\n        },\r\n        \"type\": \"Microsoft.Network/virtualNetworks/subnets\"\r\n
+        \     }\r\n    ]\r\n  }\r\n}"
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 05:40:33 GMT
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demonic0?api-version=2015-06-15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.5.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_network/0.18.2 Profiles/V2017_03_09/Network/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - a7d6047c-5ba0-4353-b470-bd28eab7fb1e
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1836'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Etag:
+      - W/"745dab4c-00af-4705-8a96-8db9d33bc734"
+      X-Ms-Correlation-Request-Id:
+      - 88671c12-cff4-4f3a-9e98-be5fbe8fa52d
+      X-Ms-Request-Id:
+      - 3975d478-2a19-4dfd-b53d-0070f2a6727a
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Www-Authenticate:
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvXiyUBJe9xPsaCWRMr00Qk5GwMQ9SHKRfI9xvmVUQG2cdlS50DpqLOSFXAqe4Oxx3TUFrcsCSWXlYCVimPGqDSY07w9/OrMWagdiyZxTqXuJXvsK6qryV3rkTnxKGhqiSNzltih44XSaw2rkauiog
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14989'
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20191007T054034Z:88671c12-cff4-4f3a-9e98-be5fbe8fa52d
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 07 Oct 2019 05:40:34 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"name\": \"demoNic0\",\r\n  \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0\",\r\n
+        \ \"etag\": \"W/\\\"745dab4c-00af-4705-8a96-8db9d33bc734\\\"\",\r\n  \"location\":
+        \"westus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n
+        \   \"resourceGuid\": \"c36fb7fd-8853-4c07-aff0-6161a481206c\",\r\n    \"ipConfigurations\":
+        [\r\n      {\r\n        \"name\": \"ipconfig1\",\r\n        \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0/ipConfigurations/ipconfig1\",\r\n
+        \       \"etag\": \"W/\\\"745dab4c-00af-4705-8a96-8db9d33bc734\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkInterfaces/ipConfigurations\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"privateIPAddress\": \"10.0.0.4\",\r\n          \"privateIPAllocationMethod\":
+        \"Dynamic\",\r\n          \"subnet\": {\r\n            \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demoNetwork/subnets/demoSubnet\"\r\n
+        \         },\r\n          \"primary\": true\r\n        }\r\n      }\r\n    ],\r\n
+        \   \"dnsSettings\": {\r\n      \"dnsServers\": [],\r\n      \"appliedDnsServers\":
+        []\r\n    },\r\n    \"macAddress\": \"001DD8B700FC\",\r\n    \"enableIPForwarding\":
+        false,\r\n    \"networkSecurityGroup\": {\r\n      \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup\"\r\n
+        \   },\r\n    \"primary\": true,\r\n    \"virtualMachine\": {\r\n      \"id\":
+        \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Compute/virtualMachines/demoVm\"\r\n
+        \   }\r\n  },\r\n  \"type\": \"Microsoft.Network/networkInterfaces\"\r\n}"
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 05:40:34 GMT
+- request:
+    method: get
+    uri: https://AZURE_STACK_HOST/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demosecuritygroup?api-version=2015-06-15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.5.6 (x86_64-linux) ms_rest/0.7.4 ms_rest_azure/0.11.0 Azure-SDK-For-Ruby
+        azure_mgmt_network/0.18.2 Profiles/V2017_03_09/Network/Mgmt
+      Content-Type:
+      - application/json; charset=utf-8
+      Accept:
+      - application/json
+      Accept-Language:
+      - en-US
+      X-Ms-Client-Request-Id:
+      - '09bfa5ae-bec9-425f-84c0-b264cdf2b4db'
+      Authorization:
+      - Bearer AZURE_STACK_TOKEN
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '6897'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Etag:
+      - W/"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4"
+      X-Ms-Correlation-Request-Id:
+      - 186e5147-3417-48d4-b2a7-912f4ad331c3
+      X-Ms-Request-Id:
+      - '09e825bc-b499-477f-9ab2-8723ad4c4881'
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Www-Authenticate:
+      - oYG3MIG0oAMKAQChCwYJKoZIgvcSAQICooGfBIGcYIGZBgkqhkiG9xIBAgICAG+BiTCBhqADAgEFoQMCAQ+iejB4oAMCARKicQRvWqEDq3PQdtfuKft2WNaL76ivTDMhPCE071X+PWqdB1n4JGH0/dXEK/hzMbDLqXC3dHQFBIpkGq6z77xHJi4lbFchXaNiUewfxeEuYeNO3XwUIUJo2vdHOH98iPp6RAXqT3JSLYHpw3p26juosiHS
+      X-Ms-Ratelimit-Remaining-Subscription-Reads:
+      - '14988'
+      X-Ms-Routing-Request-Id:
+      - WESTUS:20191007T054035Z:186e5147-3417-48d4-b2a7-912f4ad331c3
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 07 Oct 2019 05:40:34 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"name\": \"demoSecurityGroup\",\r\n  \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup\",\r\n
+        \ \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n  \"type\":
+        \"Microsoft.Network/networkSecurityGroups\",\r\n  \"location\": \"westus\",\r\n
+        \ \"properties\": {\r\n    \"provisioningState\": \"Succeeded\",\r\n    \"resourceGuid\":
+        \"89cce752-0d4e-486a-b7b5-dfe699a6e084\",\r\n    \"securityRules\": [\r\n
+        \     {\r\n        \"name\": \"ssh\",\r\n        \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/securityRules/ssh\",\r\n
+        \       \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkSecurityGroups/securityRules\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"description\": \"Allow RDP\",\r\n          \"protocol\": \"Tcp\",\r\n
+        \         \"sourcePortRange\": \"*\",\r\n          \"destinationPortRange\":
+        \"22\",\r\n          \"sourceAddressPrefix\": \"*\",\r\n          \"destinationAddressPrefix\":
+        \"*\",\r\n          \"access\": \"Allow\",\r\n          \"priority\": 200,\r\n
+        \         \"direction\": \"Inbound\"\r\n        }\r\n      }\r\n    ],\r\n
+        \   \"defaultSecurityRules\": [\r\n      {\r\n        \"name\": \"AllowVnetInBound\",\r\n
+        \       \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowVnetInBound\",\r\n
+        \       \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkSecurityGroups/defaultSecurityRules\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"description\": \"Allow inbound traffic from all VMs in VNET\",\r\n
+        \         \"protocol\": \"*\",\r\n          \"sourcePortRange\": \"*\",\r\n
+        \         \"destinationPortRange\": \"*\",\r\n          \"sourceAddressPrefix\":
+        \"VirtualNetwork\",\r\n          \"destinationAddressPrefix\": \"VirtualNetwork\",\r\n
+        \         \"access\": \"Allow\",\r\n          \"priority\": 65000,\r\n          \"direction\":
+        \"Inbound\"\r\n        }\r\n      },\r\n      {\r\n        \"name\": \"AllowAzureLoadBalancerInBound\",\r\n
+        \       \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBound\",\r\n
+        \       \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkSecurityGroups/defaultSecurityRules\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"description\": \"Allow inbound traffic from azure load balancer\",\r\n
+        \         \"protocol\": \"*\",\r\n          \"sourcePortRange\": \"*\",\r\n
+        \         \"destinationPortRange\": \"*\",\r\n          \"sourceAddressPrefix\":
+        \"AzureLoadBalancer\",\r\n          \"destinationAddressPrefix\": \"*\",\r\n
+        \         \"access\": \"Allow\",\r\n          \"priority\": 65001,\r\n          \"direction\":
+        \"Inbound\"\r\n        }\r\n      },\r\n      {\r\n        \"name\": \"DenyAllInBound\",\r\n
+        \       \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/DenyAllInBound\",\r\n
+        \       \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkSecurityGroups/defaultSecurityRules\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"description\": \"Deny all inbound traffic\",\r\n          \"protocol\":
+        \"*\",\r\n          \"sourcePortRange\": \"*\",\r\n          \"destinationPortRange\":
+        \"*\",\r\n          \"sourceAddressPrefix\": \"*\",\r\n          \"destinationAddressPrefix\":
+        \"*\",\r\n          \"access\": \"Deny\",\r\n          \"priority\": 65500,\r\n
+        \         \"direction\": \"Inbound\"\r\n        }\r\n      },\r\n      {\r\n
+        \       \"name\": \"AllowVnetOutBound\",\r\n        \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowVnetOutBound\",\r\n
+        \       \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkSecurityGroups/defaultSecurityRules\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"description\": \"Allow outbound traffic from all VMs to all VMs
+        in VNET\",\r\n          \"protocol\": \"*\",\r\n          \"sourcePortRange\":
+        \"*\",\r\n          \"destinationPortRange\": \"*\",\r\n          \"sourceAddressPrefix\":
+        \"VirtualNetwork\",\r\n          \"destinationAddressPrefix\": \"VirtualNetwork\",\r\n
+        \         \"access\": \"Allow\",\r\n          \"priority\": 65000,\r\n          \"direction\":
+        \"Outbound\"\r\n        }\r\n      },\r\n      {\r\n        \"name\": \"AllowInternetOutBound\",\r\n
+        \       \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/AllowInternetOutBound\",\r\n
+        \       \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkSecurityGroups/defaultSecurityRules\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"description\": \"Allow outbound traffic from all VMs to Internet\",\r\n
+        \         \"protocol\": \"*\",\r\n          \"sourcePortRange\": \"*\",\r\n
+        \         \"destinationPortRange\": \"*\",\r\n          \"sourceAddressPrefix\":
+        \"*\",\r\n          \"destinationAddressPrefix\": \"Internet\",\r\n          \"access\":
+        \"Allow\",\r\n          \"priority\": 65001,\r\n          \"direction\": \"Outbound\"\r\n
+        \       }\r\n      },\r\n      {\r\n        \"name\": \"DenyAllOutBound\",\r\n
+        \       \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkSecurityGroups/demoSecurityGroup/defaultSecurityRules/DenyAllOutBound\",\r\n
+        \       \"etag\": \"W/\\\"8be1c1cc-2986-4641-aae5-e5ba7a9c6ed4\\\"\",\r\n
+        \       \"type\": \"Microsoft.Network/networkSecurityGroups/defaultSecurityRules\",\r\n
+        \       \"properties\": {\r\n          \"provisioningState\": \"Succeeded\",\r\n
+        \         \"description\": \"Deny all outbound traffic\",\r\n          \"protocol\":
+        \"*\",\r\n          \"sourcePortRange\": \"*\",\r\n          \"destinationPortRange\":
+        \"*\",\r\n          \"sourceAddressPrefix\": \"*\",\r\n          \"destinationAddressPrefix\":
+        \"*\",\r\n          \"access\": \"Deny\",\r\n          \"priority\": 65500,\r\n
+        \         \"direction\": \"Outbound\"\r\n        }\r\n      }\r\n    ],\r\n
+        \   \"networkInterfaces\": [\r\n      {\r\n        \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/networkInterfaces/demoNic0\"\r\n
+        \     }\r\n    ],\r\n    \"subnets\": [\r\n      {\r\n        \"id\": \"/subscriptions/AZURE_STACK_SUBSCRIPTION/resourceGroups/demo-resource-group/providers/Microsoft.Network/virtualNetworks/demoNetwork/subnets/demoSubnet\"\r\n
+        \     }\r\n    ]\r\n  }\r\n}"
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 05:40:35 GMT
+recorded_with: VCR 5.0.0
