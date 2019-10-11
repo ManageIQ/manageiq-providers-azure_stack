@@ -39,7 +39,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Stream do
   def assert_specific_event(event)
     expect(event).to include(
       :event_type => 'Administrative_Microsoft.Compute_virtualMachines_restart_Started',
-      :source     => 'AZURE_STACK',
+      :source     => 'AZURESTACK',
       :timestamp  => '2019-01-08T15:27:39.396015Z',
       :ems_id     => ems.id
     )
