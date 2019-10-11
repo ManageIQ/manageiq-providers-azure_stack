@@ -37,7 +37,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::EventParser do
       it 'base_data' do
         expect(event_hash).to include(
           :event_type => 'Administrative_Microsoft.Compute_virtualMachines_restart_Started',
-          :source     => 'AZURE_STACK',
+          :source     => 'AZURESTACK',
           :ems_ref    => '/event/id',
           :timestamp  => '2019-01-07T20:00:00.000000Z',
           :vm_ems_ref => '/myresource/myid',
@@ -82,7 +82,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::EventParser do
       it 'base_data' do
         expect(event_hash).to include(
           :event_type => 'Administrative_Microsoft.Network_virtualNetworks_restart_Started',
-          :source     => 'AZURE_STACK',
+          :source     => 'AZURESTACK',
           :ems_ref    => '/event/id',
           :timestamp  => '2019-01-07T20:00:00.000000Z',
           :vm_ems_ref => nil,

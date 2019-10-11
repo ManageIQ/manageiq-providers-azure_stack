@@ -6,7 +6,7 @@ module ManageIQ::Providers::AzureStack::CloudManager::EventParser
 
     {
       :event_type => event_type(event),
-      :source     => 'AZURE_STACK',
+      :source     => 'AZURESTACK',
       :ems_ref    => full_data[:id].downcase,
       :timestamp  => full_data[:event_timestamp],
       :vm_ems_ref => full_data[:resource_type]&.downcase == INSTANCE_TYPE ? full_data[:resource_id]&.downcase : nil,

@@ -27,7 +27,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Runner do
       expect(EmsEvent).to receive(:add_queue) do |method, ems_id, event_hash|
         expect(method).to eq('add')
         expect(ems_id).to eq(123)
-        expect(event_hash).to include(:source => 'AZURE_STACK', :ems_ref => '/event/456')
+        expect(event_hash).to include(:source => 'AZURESTACK', :ems_ref => '/event/456')
       end
       subject.queue_event(event)
     end
