@@ -2,7 +2,6 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
   require_nested :EventCatcher
   require_nested :EventParser
   require_nested :MetricsCapture
-  require_nested :MetricsCollectorWorker
   require_nested :Refresher
   require_nested :RefreshWorker
   require_nested :Vm
