@@ -1,11 +1,11 @@
 # manageiq-providers-azure_stack
 
 [![Gem Version](https://badge.fury.io/rb/manageiq-providers-azure_stack.svg)](http://badge.fury.io/rb/manageiq-providers-azure_stack)
-[![Build Status](https://travis-ci.org/ManageIQ/manageiq-providers-azure_stack.svg?branch=master)](https://travis-ci.org/ManageIQ/manageiq-providers-azure_stack)
+[![Build Status](https://travis-ci.org/ManageIQ/manageiq-providers-azure_stack.svg?branch=jansa)](https://travis-ci.org/ManageIQ/manageiq-providers-azure_stack)
 [![Code Climate](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack.svg)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack)
 [![Test Coverage](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/badges/coverage.svg)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/coverage)
 [![Dependency Status](https://gemnasium.com/ManageIQ/manageiq-providers-azure_stack.svg)](https://gemnasium.com/ManageIQ/manageiq-providers-azure_stack)
-[![Security](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/master.svg)](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/master)
+[![Security](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/jansa.svg)](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/jansa)
 
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-azure_stack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Translate](https://img.shields.io/badge/translate-zanata-blue.svg)](https://translate.zanata.org/zanata/project/view/manageiq-providers-azure_stack)
