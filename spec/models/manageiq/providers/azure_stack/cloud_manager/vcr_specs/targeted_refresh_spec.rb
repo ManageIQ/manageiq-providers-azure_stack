@@ -3,7 +3,6 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
 
   REFRESH_SETTINGS = [
     {
-      :inventory_object_refresh => true,
       :allow_targeted_refresh   => true,
       :inventory_collections    => {
         :saver_strategy => :default

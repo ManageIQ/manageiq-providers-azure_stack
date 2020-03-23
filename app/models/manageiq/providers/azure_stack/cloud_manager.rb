@@ -21,10 +21,6 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
     build_network_manager(:type => 'ManageIQ::Providers::AzureStack::NetworkManager') unless network_manager
   end
 
-  def inventory_object_refresh?
-    true
-  end
-
   def ensure_managers_zone_and_provider_region
     network_manager.zone_id = zone_id if network_manager
     # provider_region is passed over via delegation so no need to copy-paste
