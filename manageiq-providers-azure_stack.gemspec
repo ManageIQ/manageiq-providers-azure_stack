@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'azure_mgmt_monitor', '0.17.1'
   s.add_runtime_dependency 'azure_mgmt_network', '0.18.2'
   s.add_runtime_dependency 'azure_mgmt_resources', '0.17.2'
-  s.add_runtime_dependency 'ms_rest_azure', '0.11.0'
+  s.add_runtime_dependency 'ms_rest_azure', '0.11.2'
 
   s.add_development_dependency "codeclimate-test-reporter", "~> 1.0.0"
   s.add_development_dependency "simplecov"
