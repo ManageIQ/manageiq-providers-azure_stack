@@ -20,11 +20,11 @@ describe ManageIQ::Providers::AzureStack::CloudManager::EventTargetParser do
   end
 
   def event_double(id)
-    double(
-      'event',
-      :resource_id     => id,
-      :event_timestamp => Time.now.utc
-    ).as_null_object
+    require 'azure_mgmt_monitor'
+    Azure::Monitor::Profiles::Latest::Mgmt::Models::EventData.new.tap do |event|
+      event.resource_id = id
+      event.event_timestamp = Time.now.utc
+    end
   end
 
   def assert_event_triggers_targets(event_data, expected_targets)
