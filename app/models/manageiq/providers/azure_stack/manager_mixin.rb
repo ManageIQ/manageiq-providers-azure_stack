@@ -81,62 +81,123 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
   module ClassMethods
     def params_for_create
       @params_for_create ||= {
-        :title  => "Configure Azure Stack",
         :fields => [
           {
             :component  => "text-field",
-            :name       => "endpoints.default.base_url",
-            :label      => "URL",
+            :name       => "uid_ems",
+            :label      => _("Tenant ID"),
             :isRequired => true,
-            :validate   => [{:type => "required-validator"}]
+            :validate   => [{:type => "required-validator"}],
           },
           {
             :component  => "text-field",
-            :name       => "endpoints.default.tenant",
-            :label      => "Tenant",
+            :name       => "subscription",
+            :label      => _("Subscription ID"),
             :isRequired => true,
-            :validate   => [{:type => "required-validator"}]
+            :validate   => [{:type => "required-validator"}],
           },
           {
-            :component => "text-field",
-            :name      => "endpoints.default.username",
-            :label     => "Username",
+            :component  => "select-field",
+            :name       => "api_version",
+            :label      => _("API Version"),
             :isRequired => true,
-            :validate   => [{:type => "required-validator"}]
+            :validate   => [{:type => "required-validator"}],
+            :options    => [
+              {
+                :label => '2017-03-09 Profile',
+                :value => 'V2017_03_09',
+              },
+              {
+                :label => '2018-03-01 Profile',
+                :value => 'V2018_03_01',
+              },
+            ],
           },
           {
-            :component  => "text-field",
-            :name       => "endpoints.default.password",
-            :label      => "Password",
-            :type       => "password",
-            :isRequired => true,
-            :validate   => [{:type => "required-validator"}]
+            :component => 'sub-form',
+            :name      => 'endpoints-subform',
+            :title     => _("Endpoint"),
+            :fields    => [
+              {
+                :component              => 'validate-provider-credentials',
+                :name                   => 'authentications.default.valid',
+                :skipSubmit             => true,
+                :validationDependencies => %w[type zone_id subscription uid_ems api_version],
+                :fields                 => [
+                  {
+                    :component  => "select-field",
+                    :name       => "endpoints.default.security_protocol",
+                    :label      => _("Security Protocol"),
+                    :isRequired => true,
+                    :validate   => [{:type => "required-validator"}],
+                    :options    => [
+                      {
+                        :label => _("SSL without validation"),
+                        :value => "ssl-no-validation"
+                      },
+                      {
+                        :label => _("SSL"),
+                        :value => "ssl-with-validation"
+                      },
+                      {
+                        :label => _("Non-SSL"),
+                        :value => "non-ssl"
+                      }
+                    ]
+                  },
+                  {
+                    :component  => "text-field",
+                    :name       => "endpoints.default.hostname",
+                    :label      => _("Hostname (or IPv4 or IPv6 address)"),
+                    :isRequired => true,
+                    :validate   => [{:type => "required-validator"}],
+                  },
+                  {
+                    :component  => "text-field",
+                    :name       => "endpoints.default.port",
+                    :label      => _("API Port"),
+                    :type       => "number",
+                    :isRequired => true,
+                    :validate   => [{:type => "required-validator"}],
+                  },
+                  {
+                    :component  => "text-field",
+                    :name       => "authentications.default.userid",
+                    :label      => "Username",
+                    :isRequired => true,
+                    :validate   => [{:type => "required-validator"}],
+                  },
+                  {
+                    :component  => "password-field",
+                    :name       => "authentications.default.password",
+                    :label      => "Password",
+                    :type       => "password",
+                    :isRequired => true,
+                    :validate   => [{:type => "required-validator"}],
+                  },
+                ],
+              },
+            ],
           },
-          {
-            :component  => "text-field",
-            :name       => "endpoints.default.subscription",
-            :label      => "Subscription",
-            :isRequired => true,
-            :validate   => [{:type => "required-validator"}]
-          },
-          {
-            :component  => "text-field",
-            :name       => "endpoints.default.api_version",
-            :label      => "API Version",
-            :isRequired => true,
-            :validate   => [{:type => "required-validator"}]
-          }
         ]
       }.freeze
     end
 
     def verify_credentials(args)
-      default_endpoint = args.dig("endpoints", "default")
-      base_url, tenant, username, password, subscription, api_version = default_endpoint.values_at(
-        "base_url", "tenant", "username", "password", "subscription", "api_version"
-      )
+      tenant, subscription, api_version = args.values_at("uid_ems", "subscription", "api_version")
+      endpoint = args.dig("endpoints", "default")
+      authentication = args.dig("authentications", "default")
 
-      !!raw_connect(base_url, tenant, username, password, subscription, :Resources, api_version, :validate => true)
+      hostname, port, security_protocol = endpoint&.values_at("hostname", "port", "security_protocol")
+      username, password = authentication&.values_at("userid", "password")
+
+      url = URI::Generic.build(:scheme => security_protocol == 'non-ssl' ? 'http' : 'https', :host => hostname, :port => port).to_s
+
+      password = MiqPassword.try_decrypt(password)
+      # Pull out the password from the database if a provider ID is available
+      password ||= find(args["id"]).authentication_password('default')
+
+      !!raw_connect(url, tenant, username, password, subscription, :Resources, api_version, :validate => true)
     end
 
     def raw_connect(base_url, tenant, username, password, subscription, service, api_version, ad_settings: nil, token: nil, validate: false)
