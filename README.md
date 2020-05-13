@@ -1,7 +1,7 @@
 # manageiq-providers-azure_stack
 
 [![Gem Version](https://badge.fury.io/rb/manageiq-providers-azure_stack.svg)](http://badge.fury.io/rb/manageiq-providers-azure_stack)
-[![Build Status](https://travis-ci.org/ManageIQ/manageiq-providers-azure_stack.svg?branch=master)](https://travis-ci.org/ManageIQ/manageiq-providers-azure_stack)
+[![Build Status](https://travis-ci.com/ManageIQ/manageiq-providers-azure_stack.svg?branch=master)](https://travis-ci.com/ManageIQ/manageiq-providers-azure_stack)
 [![Code Climate](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack.svg)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack)
 [![Test Coverage](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/badges/coverage.svg)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/coverage)
 [![Dependency Status](https://gemnasium.com/ManageIQ/manageiq-providers-azure_stack.svg)](https://gemnasium.com/ManageIQ/manageiq-providers-azure_stack)
