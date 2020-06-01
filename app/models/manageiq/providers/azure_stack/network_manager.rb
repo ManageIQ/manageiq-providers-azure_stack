@@ -6,6 +6,8 @@ class ManageIQ::Providers::AzureStack::NetworkManager < ManageIQ::Providers::Net
   require_nested :NetworkPort
   require_nested :SecurityGroup
 
+  include BelongsToParentManagerMixin
+
   delegate :api_version,
            :authentication_check,
            :authentication_status,
