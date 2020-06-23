@@ -145,8 +145,9 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
       refresh_job = MiqQueue.where(:method_name => 'refresh').first
 
       vcr_with_auth("#{described_class.name.underscore}_targeted/#{api_version}-#{cassette}") do
-        status, msg, _ = refresh_job.deliver
-        expect(:status => status, :msg => msg).not_to include(:status => 'error')
+        status, message, result = refresh_job.deliver
+        refresh_job.delivered(status, message, result)
+        expect(:status => status, :msg => message).not_to include(:status => 'error')
       end
 
       ems.reload
