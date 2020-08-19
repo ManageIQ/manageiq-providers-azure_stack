@@ -87,21 +87,21 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
             :name       => "uid_ems",
             :label      => _("Tenant ID"),
             :isRequired => true,
-            :validate   => [{:type => "required-validator"}],
+            :validate   => [{:type => "required"}],
           },
           {
             :component  => "text-field",
             :name       => "subscription",
             :label      => _("Subscription ID"),
             :isRequired => true,
-            :validate   => [{:type => "required-validator"}],
+            :validate   => [{:type => "required"}],
           },
           {
-            :component  => "select-field",
+            :component  => "select",
             :name       => "api_version",
             :label      => _("API Version"),
             :isRequired => true,
-            :validate   => [{:type => "required-validator"}],
+            :validate   => [{:type => "required"}],
             :options    => [
               {
                 :label => '2017-03-09 Profile',
@@ -125,11 +125,11 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                 :validationDependencies => %w[type zone_id subscription uid_ems api_version],
                 :fields                 => [
                   {
-                    :component  => "select-field",
+                    :component  => "select",
                     :name       => "endpoints.default.security_protocol",
                     :label      => _("Security Protocol"),
                     :isRequired => true,
-                    :validate   => [{:type => "required-validator"}],
+                    :validate   => [{:type => "required"}],
                     :options    => [
                       {
                         :label => _("SSL without validation"),
@@ -150,7 +150,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                     :name       => "endpoints.default.hostname",
                     :label      => _("Hostname (or IPv4 or IPv6 address)"),
                     :isRequired => true,
-                    :validate   => [{:type => "required-validator"}],
+                    :validate   => [{:type => "required"}],
                   },
                   {
                     :component  => "text-field",
@@ -158,14 +158,14 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                     :label      => _("API Port"),
                     :type       => "number",
                     :isRequired => true,
-                    :validate   => [{:type => "required-validator"}],
+                    :validate   => [{:type => "required"}],
                   },
                   {
                     :component  => "text-field",
                     :name       => "authentications.default.userid",
                     :label      => "Username",
                     :isRequired => true,
-                    :validate   => [{:type => "required-validator"}],
+                    :validate   => [{:type => "required"}],
                   },
                   {
                     :component  => "password-field",
@@ -173,7 +173,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                     :label      => "Password",
                     :type       => "password",
                     :isRequired => true,
-                    :validate   => [{:type => "required-validator"}],
+                    :validate   => [{:type => "required"}],
                   },
                 ],
               },
