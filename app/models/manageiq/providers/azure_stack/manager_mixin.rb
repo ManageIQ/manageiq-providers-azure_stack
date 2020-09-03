@@ -84,6 +84,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
         :fields => [
           {
             :component  => "text-field",
+            :id         => "uid_ems",
             :name       => "uid_ems",
             :label      => _("Tenant ID"),
             :isRequired => true,
@@ -91,6 +92,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
           },
           {
             :component  => "text-field",
+            :id         => "subscription",
             :name       => "subscription",
             :label      => _("Subscription ID"),
             :isRequired => true,
@@ -98,6 +100,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
           },
           {
             :component  => "select",
+            :id         => "api_version",
             :name       => "api_version",
             :label      => _("API Version"),
             :isRequired => true,
@@ -115,17 +118,20 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
           },
           {
             :component => 'sub-form',
+            :id        => 'endpoints-subform',
             :name      => 'endpoints-subform',
             :title     => _("Endpoint"),
             :fields    => [
               {
                 :component              => 'validate-provider-credentials',
+                :id                     => 'authentications.default.valid',
                 :name                   => 'authentications.default.valid',
                 :skipSubmit             => true,
                 :validationDependencies => %w[type zone_id subscription uid_ems api_version],
                 :fields                 => [
                   {
                     :component  => "select",
+                    :id         => "endpoints.default.security_protocol",
                     :name       => "endpoints.default.security_protocol",
                     :label      => _("Security Protocol"),
                     :isRequired => true,
@@ -147,6 +153,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                   },
                   {
                     :component  => "text-field",
+                    :id         => "endpoints.default.hostname",
                     :name       => "endpoints.default.hostname",
                     :label      => _("Hostname (or IPv4 or IPv6 address)"),
                     :isRequired => true,
@@ -154,6 +161,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                   },
                   {
                     :component  => "text-field",
+                    :id         => "endpoints.default.port",
                     :name       => "endpoints.default.port",
                     :label      => _("API Port"),
                     :type       => "number",
@@ -162,6 +170,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                   },
                   {
                     :component  => "text-field",
+                    :id         => "authentications.default.userid",
                     :name       => "authentications.default.userid",
                     :label      => "Username",
                     :isRequired => true,
@@ -169,6 +178,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                   },
                   {
                     :component  => "password-field",
+                    :id         => "authentications.default.password",
                     :name       => "authentications.default.password",
                     :label      => "Password",
                     :type       => "password",
