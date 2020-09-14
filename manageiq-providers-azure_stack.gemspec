@@ -1,24 +1,28 @@
-$:.push File.expand_path("../lib", __FILE__)
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'manageiq/providers/azure_stack/version'
 
-require "manageiq/providers/azure_stack/version"
+Gem::Specification.new do |spec|
+  spec.name          = "manageiq-providers-azure_stack"
+  spec.version       = ManageIQ::Providers::AzureStack::VERSION
+  spec.authors       = ["ManageIQ Authors"]
 
-Gem::Specification.new do |s|
-  s.name        = "manageiq-providers-azure_stack"
-  s.version     = ManageIQ::Providers::AzureStack::VERSION
-  s.authors     = ["ManageIQ Developers"]
-  s.homepage    = "https://github.com/ManageIQ/manageiq-providers-azure_stack"
-  s.summary     = "AzureStack Provider for ManageIQ"
-  s.description = "AzureStack Provider for ManageIQ"
-  s.licenses    = ["Apache-2.0"]
+  spec.summary       = "ManageIQ plugin for the Azure Stack provider."
+  spec.description   = "ManageIQ plugin for the Azure Stack provider."
+  spec.homepage      = "https://github.com/ManageIQ/manageiq-providers-azure_stack"
+  spec.license       = "Apache-2.0"
 
-  s.files = Dir["{app,config,lib}/**/*"]
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
 
-  s.add_runtime_dependency 'azure_mgmt_compute', '0.18.3'
-  s.add_runtime_dependency 'azure_mgmt_monitor', '0.17.1'
-  s.add_runtime_dependency 'azure_mgmt_network', '0.18.2'
-  s.add_runtime_dependency 'azure_mgmt_resources', '0.17.2'
-  s.add_runtime_dependency 'ms_rest_azure', '0.11.2'
+  spec.add_runtime_dependency 'azure_mgmt_compute', '0.18.3'
+  spec.add_runtime_dependency 'azure_mgmt_monitor', '0.17.1'
+  spec.add_runtime_dependency 'azure_mgmt_network', '0.18.2'
+  spec.add_runtime_dependency 'azure_mgmt_resources', '0.17.2'
+  spec.add_runtime_dependency 'ms_rest_azure', '0.11.2'
 
-  s.add_development_dependency "codeclimate-test-reporter", "~> 1.0.0"
-  s.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov"
 end
