@@ -127,6 +127,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                 :id                     => 'authentications.default.valid',
                 :name                   => 'authentications.default.valid',
                 :skipSubmit             => true,
+                :isRequired             => true,
                 :validationDependencies => %w[type zone_id subscription uid_ems api_version],
                 :fields                 => [
                   {
