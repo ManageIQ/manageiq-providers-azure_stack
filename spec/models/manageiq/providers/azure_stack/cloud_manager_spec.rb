@@ -110,7 +110,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager do
           'base.url',
           'tenant',
           'username',
-          MiqPassword.encrypt('password'),
+          ManageIQ::Password.encrypt('password'),
           'subscription',
           :Resources,
           api_version

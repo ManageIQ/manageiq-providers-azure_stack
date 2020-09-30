@@ -204,7 +204,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
 
       url = URI::Generic.build(:scheme => security_protocol == 'non-ssl' ? 'http' : 'https', :host => hostname, :port => port).to_s
 
-      password = MiqPassword.try_decrypt(password)
+      password = ManageIQ::Password.try_decrypt(password)
       # Pull out the password from the database if a provider ID is available
       password ||= find(args["id"]).authentication_password('default')
 
@@ -220,7 +220,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
       require 'patches/ms_rest_azure/password_token_provider' # https://github.com/Azure/azure-sdk-for-ruby/pull/2039
 
       ad_settings ||= active_directory_settings_api(base_url)
-      token       ||= token(tenant, username, MiqPassword.try_decrypt(password), ad_settings)
+      token       ||= token(tenant, username, ManageIQ::Password.try_decrypt(password), ad_settings)
 
       options = {
         :subscription_id           => subscription,
