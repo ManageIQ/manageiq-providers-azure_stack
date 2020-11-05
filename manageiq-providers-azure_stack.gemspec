@@ -18,11 +18,10 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'azure_mgmt_compute', '0.18.3'
-  spec.add_runtime_dependency 'azure_mgmt_monitor', '0.17.1'
-  spec.add_runtime_dependency 'azure_mgmt_network', '0.18.2'
-  spec.add_runtime_dependency 'azure_mgmt_resources', '0.17.2'
-  spec.add_runtime_dependency 'ms_rest_azure', '0.11.2'
+  spec.add_runtime_dependency 'azure_mgmt_compute', '~> 0.20'
+  spec.add_runtime_dependency 'azure_mgmt_monitor', '~> 0.17'
+  spec.add_runtime_dependency 'azure_mgmt_network', '~> 0.24'
+  spec.add_runtime_dependency 'azure_mgmt_resources', '~> 0.18'
 
   spec.add_development_dependency "simplecov"
 end
