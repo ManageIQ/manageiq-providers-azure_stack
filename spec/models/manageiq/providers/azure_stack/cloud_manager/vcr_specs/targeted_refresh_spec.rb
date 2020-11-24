@@ -13,7 +13,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
   supported_api_versions do |api_version|
     let!(:ems) do
       ems = FactoryBot.create(:ems_azure_stack_with_vcr_authentication, :skip_validate, :api_version => api_version)
-      allow(ems).to receive(:hostname_format_valid?).and_return(true) # or else "AZURE_STACK_HOST" gets rejected
+      allow_any_instance_of(ManageIQ::Providers::AzureStack::CloudManager).to receive(:hostname_format_valid?).and_return(true) # or else "AZURE_STACK_HOST" gets rejected
       ems
     end
 
