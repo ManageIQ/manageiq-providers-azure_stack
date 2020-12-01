@@ -45,6 +45,9 @@
   :azure_stack_network:
     :allow_targeted_refresh: true
 
+:log:
+  :level_azure_stack: info
+
 :workers:
   :worker_base:
     :event_catcher:
