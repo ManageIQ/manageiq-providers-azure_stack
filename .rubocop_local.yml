@@ -3,3 +3,5 @@ Style/GlobalVars:
     # Loggers
     - $log
     - $azure_stack_log
+Lint/RescueException:
+  Enabled: false

@@ -51,7 +51,7 @@ class ManageIQ::Providers::AzureStack::CloudManager::MetricsCapture < ManageIQ::
     start_time   = start_time.utc
 
     begin
-      target.ext_management_system.with_provider_connection do |connection|
+      target.ext_management_system.with_provider_connection do |_connection|
         [{target.ems_ref => VIM_STYLE_COUNTERS},
          {target.ems_ref => fake_metrics(start_time, end_time)}]
       end
