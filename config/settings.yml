@@ -49,12 +49,10 @@
   :level_azure_stack: info
 
 :workers:
-  :worker_base:
-    :event_catcher:
-      :event_catcher_azure_stack:
-        :poll: 20.seconds
-    :queue_worker_base:
-      :ems_refresh_worker:
-        :ems_refresh_worker_azure_stack: {}
-        :ems_refresh_worker_azure_stack_network: {}
-
+  :ems_refresh_worker_azure_stack:
+    :inherits_from: ems_refresh_worker
+  :ems_refresh_worker_azure_stack_network:
+    :inherits_from: ems_refresh_worker
+  :event_catcher_azure_stack:
+    :inherits_from: event_catcher
+    :poll: 20.seconds
