@@ -99,13 +99,14 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
             :validate   => [{:type => "required"}],
           },
           {
-            :component  => "select",
-            :id         => "api_version",
-            :name       => "api_version",
-            :label      => _("API Version"),
-            :isRequired => true,
-            :validate   => [{:type => "required"}],
-            :options    => [
+            :component    => "select",
+            :id           => "api_version",
+            :name         => "api_version",
+            :label        => _("API Version"),
+            :isRequired   => true,
+            :initialValue => 'V2018_03_01',
+            :validate     => [{:type => "required"}],
+            :options      => [
               {
                 :label => '2017-03-09 Profile',
                 :value => 'V2017_03_09',
@@ -131,13 +132,14 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                 :validationDependencies => %w[type zone_id subscription uid_ems api_version],
                 :fields                 => [
                   {
-                    :component  => "select",
-                    :id         => "endpoints.default.security_protocol",
-                    :name       => "endpoints.default.security_protocol",
-                    :label      => _("Security Protocol"),
-                    :isRequired => true,
-                    :validate   => [{:type => "required"}],
-                    :options    => [
+                    :component    => "select",
+                    :id           => "endpoints.default.security_protocol",
+                    :name         => "endpoints.default.security_protocol",
+                    :label        => _("Security Protocol"),
+                    :isRequired   => true,
+                    :initialValue => 'ssl-with-validation',
+                    :validate     => [{:type => "required"}],
+                    :options      => [
                       {
                         :label => _("SSL without validation"),
                         :value => "ssl-no-validation"
