@@ -1,9 +1,9 @@
 # ManageIQ::Providers::AzureStack
 
-[![Build Status](https://travis-ci.com/ManageIQ/manageiq-providers-azure_stack.svg?branch=master)](https://travis-ci.com/ManageIQ/manageiq-providers-azure_stack)
+[![Build Status](https://travis-ci.com/ManageIQ/manageiq-providers-azure_stack.svg?branch=lasker)](https://travis-ci.com/ManageIQ/manageiq-providers-azure_stack)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e9abcd437efff98ed5b9/maintainability)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e9abcd437efff98ed5b9/test_coverage)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/test_coverage)
-[![Security](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/master.svg)](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/master)
+[![Security](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/lasker.svg)](https://hakiri.io/github/ManageIQ/manageiq-providers-azure_stack/lasker)
 
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-azure_stack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
