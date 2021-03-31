@@ -1,5 +1,5 @@
 describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
-  let(:subscription) { Rails.application.secrets.azure_stack.try(:[], :subscription) || 'AZURE_STACK_SUBSCRIPTION' }
+  let(:subscription) { Rails.application.secrets.azure_stack[:subscription] }
 
   REFRESH_SETTINGS = [
     {
@@ -11,11 +11,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
   ].freeze
 
   supported_api_versions do |api_version|
-    let!(:ems) do
-      ems = FactoryBot.create(:ems_azure_stack_with_vcr_authentication, :skip_validate, :api_version => api_version)
-      allow_any_instance_of(ManageIQ::Providers::AzureStack::CloudManager).to receive(:hostname_format_valid?).and_return(true) # or else "AZURE_STACK_HOST" gets rejected
-      ems
-    end
+    let!(:ems) { FactoryBot.create(:ems_azure_stack_with_vcr_authentication, :skip_validate, :api_version => api_version) }
 
     describe "targeted refresh" do
       # names of test resources in the VCR cassettes
