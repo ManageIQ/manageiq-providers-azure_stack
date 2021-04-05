@@ -21,4 +21,19 @@ VCR.configure do |config|
       auth_header.first.sub(/^Bearer /, '')
     end
   end
+  config.define_cassette_placeholder(Rails.application.secrets.azure_stack_defaults[:host]) do
+    Rails.application.secrets.azure_stack[:host]
+  end
+  config.define_cassette_placeholder(Rails.application.secrets.azure_stack_defaults[:tenant]) do
+    Rails.application.secrets.azure_stack[:tenant]
+  end
+  config.define_cassette_placeholder(Rails.application.secrets.azure_stack_defaults[:subscription]) do
+    Rails.application.secrets.azure_stack[:subscription]
+  end
+  config.define_cassette_placeholder(Rails.application.secrets.azure_stack_defaults[:userid]) do
+    Rails.application.secrets.azure_stack[:userid]
+  end
+  config.define_cassette_placeholder(Rails.application.secrets.azure_stack_defaults[:password]) do
+    Rails.application.secrets.azure_stack[:password]
+  end
 end
