@@ -1,13 +1,8 @@
 describe ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Stream do
-  let(:userid)        { Rails.application.secrets.azure_stack.try(:[], :userid) || 'AZURE_STACK_USERID' }
-  let(:subscription)  { Rails.application.secrets.azure_stack.try(:[], :subscription) || 'AZURE_STACK_SUBSCRIPTION' }
+  let(:userid)        { Rails.application.secrets.azure_stack[:userid] }
+  let(:subscription)  { Rails.application.secrets.azure_stack[:subscription] }
   let(:capture_since) { Time.parse('2019-01-07T20:00:00Z').utc }
-
-  let!(:ems) do
-    ems = FactoryBot.create(:ems_azure_stack_with_vcr_authentication, :skip_validate, :api_version => api_version)
-    allow(ems).to receive(:hostname_format_valid?).and_return(true) # or else "AZURE_STACK_HOST" gets rejected
-    ems
-  end
+  let!(:ems)          { FactoryBot.create(:ems_azure_stack_with_vcr_authentication, :skip_validate, :api_version => api_version) }
 
   subject { described_class.new(ems, :since => capture_since) }
 
