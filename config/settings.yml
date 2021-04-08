@@ -9,28 +9,28 @@
       :event_groups:
         :update:
           :critical:
-            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_write_(Succeeded|Failed)$/
+            - /^Administrative_Microsoft.(Compute|Resources)_.+_write_(Succeeded|Failed)$/
           :detail:
-            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_write_.+$/
+            - /^Administrative_Microsoft.(Compute|Resources)_.+_write_.+$/
         :deletion:
           :critical:
-            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_delete_(Succeeded|Failed)$/
+            - /^Administrative_Microsoft.(Compute|Resources)_.+_delete_(Succeeded|Failed)$/
           :detail:
-            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_delete_.+$/
+            - /^Administrative_Microsoft.(Compute|Resources)_.+_delete_.+$/
         :power:
           :critical:
-            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_(restart|start|deallocate)_(Succeeded|Failed)$/
+            - /^Administrative_Microsoft.(Compute|Resources)_.+_(restart|start|deallocate)_(Succeeded|Failed)$/
           :detail:
-            - !ruby/regexp /^Administrative_Microsoft.(Compute|Resources)_.+_(restart|start|deallocate)_.+$/
+            - /^Administrative_Microsoft.(Compute|Resources)_.+_(restart|start|deallocate)_.+$/
         :status:
           :critical:
-            - !ruby/regexp /^(ServiceHealth|ResourceHealth|Alert|AutoScale|Security|Recommendation)_.+$/
+            - /^(ServiceHealth|ResourceHealth|Alert|AutoScale|Security|Recommendation)_.+$/
         :storage:
           :critical:
-            - !ruby/regexp /^Administrative_Microsoft.Storage_.+$/
+            - /^Administrative_Microsoft.Storage_.+$/
         :network:
           :critical:
-            - !ruby/regexp /^Administrative_Microsoft.Network_.+$/
+            - /^Administrative_Microsoft.Network_.+$/
 
 :http_proxy:
   :azure_stack:
