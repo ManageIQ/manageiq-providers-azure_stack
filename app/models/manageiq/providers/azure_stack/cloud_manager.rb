@@ -18,6 +18,8 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
 
   before_create :ensure_managers
 
+  supports :metrics
+
   def ensure_network_manager
     build_network_manager(:type => 'ManageIQ::Providers::AzureStack::NetworkManager') unless network_manager
   end
