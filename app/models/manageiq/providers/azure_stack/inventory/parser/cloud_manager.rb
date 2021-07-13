@@ -31,14 +31,15 @@ class ManageIQ::Providers::AzureStack::Inventory::Parser::CloudManager < ManageI
   def flavors
     collector.flavors.each do |flavor|
       persister.flavors.build(
-        :ems_ref        => flavor.name.downcase,
-        :name           => flavor.name,
-        :cpus           => flavor.number_of_cores,
-        :cpu_cores      => flavor.number_of_cores / vcpus_per_socket(flavor.name),
-        :memory         => flavor.memory_in_mb.megabytes,
-        :root_disk_size => flavor.os_disk_size_in_mb.megabytes,
-        :swap_disk_size => flavor.resource_disk_size_in_mb.megabytes,
-        :enabled        => true
+        :ems_ref              => flavor.name.downcase,
+        :name                 => flavor.name,
+        :cpu_total_cores      => flavor.number_of_cores,
+        :cpu_cores_per_socket => vcpus_per_socket(flavor.name),
+        :cpu_sockets          => flavor.number_of_cores / vcpus_per_socket(flavor.name),
+        :memory               => flavor.memory_in_mb.megabytes,
+        :root_disk_size       => flavor.os_disk_size_in_mb.megabytes,
+        :swap_disk_size       => flavor.resource_disk_size_in_mb.megabytes,
+        :enabled              => true
       )
     end
   end
@@ -70,8 +71,8 @@ class ManageIQ::Providers::AzureStack::Inventory::Parser::CloudManager < ManageI
 
       persister.hardwares.build(
         :vm_or_template  => vm_obj,
-        :cpu_sockets     => persister.flavors.lazy_find(flavor_ref, :key => :cpu_cores),
-        :cpu_total_cores => persister.flavors.lazy_find(flavor_ref, :key => :cpus),
+        :cpu_sockets     => persister.flavors.lazy_find(flavor_ref, :key => :cpu_sockets),
+        :cpu_total_cores => persister.flavors.lazy_find(flavor_ref, :key => :cpu_total_cores),
         :memory_mb       => persister.flavors.find(flavor_ref).memory / 1.megabytes,
         :disk_capacity   => persister.flavors.lazy_find(flavor_ref, :key => :swap_disk_size)
       )
