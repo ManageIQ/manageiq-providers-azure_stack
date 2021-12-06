@@ -101,16 +101,11 @@ class ManageIQ::Providers::AzureStack::Inventory::Collector::TargetCollection < 
     nil
   end
 
-  def references(collection)
-    refs = target.manager_refs_by_association.try(:[], collection)
-    refs.try(:[], :ems_ref).try(:to_a) || []
-  end
-
   def parse_targets!
     target.targets.each do |target|
       case target
       when ResourceGroup
-        add_simple_target!(:resource_group, target.ems_ref)
+        add_target!(:resource_group, target.ems_ref)
       end
     end
   end
@@ -126,10 +121,10 @@ class ManageIQ::Providers::AzureStack::Inventory::Collector::TargetCollection < 
     changed_resource_groups = manager.resource_groups
                                      .where(:ems_ref => references(:resource_groups))
     changed_resource_groups.each do |resource_group|
-      resource_group.vms.each             { |vm| add_simple_target!(:vms, vm.ems_ref) }
-      resource_group.cloud_networks.each  { |network| add_simple_target!(:cloud_networks, network.ems_ref) }
-      resource_group.network_ports.each   { |port| add_simple_target!(:network_ports, port.ems_ref) }
-      resource_group.security_groups.each { |sg| add_simple_target!(:security_groups, sg.ems_ref) }
+      resource_group.vms.each             { |vm| add_target!(:vms, vm.ems_ref) }
+      resource_group.cloud_networks.each  { |network| add_target!(:cloud_networks, network.ems_ref) }
+      resource_group.network_ports.each   { |port| add_target!(:network_ports, port.ems_ref) }
+      resource_group.security_groups.each { |sg| add_target!(:security_groups, sg.ems_ref) }
     end
   end
 
@@ -138,7 +133,7 @@ class ManageIQ::Providers::AzureStack::Inventory::Collector::TargetCollection < 
       group_ref = resource_group.id.downcase
 
       resources(group_ref).each do |resource|
-        add_simple_target!(type_to_association(resource.type), resource.id.downcase)
+        add_target!(type_to_association(resource.type), resource.id.downcase)
       end
     end
   end
@@ -154,11 +149,5 @@ class ManageIQ::Providers::AzureStack::Inventory::Collector::TargetCollection < 
     when "microsoft.network/virtualnetworks"
       :cloud_networks
     end
-  end
-
-  def add_simple_target!(association, ems_ref)
-    return if association.nil? || ems_ref.blank?
-
-    target.add_target(:association => association, :manager_ref => {:ems_ref => ems_ref})
   end
 end
