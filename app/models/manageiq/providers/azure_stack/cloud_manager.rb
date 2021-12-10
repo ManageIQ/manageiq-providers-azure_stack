@@ -18,6 +18,7 @@ class ManageIQ::Providers::AzureStack::CloudManager < ManageIQ::Providers::Cloud
 
   before_create :ensure_managers
 
+  supports :create
   supports :metrics
 
   def ensure_network_manager
