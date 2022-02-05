@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'azure_mgmt_resources', '~> 0.18'
 
   spec.add_development_dependency "manageiq-style"
-  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov", ">= 0.21.2"
 end
