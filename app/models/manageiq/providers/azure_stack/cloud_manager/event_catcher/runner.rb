@@ -24,7 +24,7 @@ class ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Runner < Mana
 
   def event_monitor_handle
     @event_monitor_handle ||= begin
-      self.class.parent::Stream.new(@ems)
+      self.class.module_parent::Stream.new(@ems)
     end
   end
 end
