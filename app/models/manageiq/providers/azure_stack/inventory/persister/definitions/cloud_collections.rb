@@ -12,7 +12,7 @@ module ManageIQ::Providers::AzureStack::Inventory::Persister::Definitions::Cloud
       orchestration_stacks
       resource_groups
     ].each do |name|
-      add_collection(cloud, name)
+      add_cloud_collection(name)
     end
   end
 end

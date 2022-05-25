@@ -11,16 +11,15 @@ module ManageIQ::Providers::AzureStack::Inventory::Persister::Definitions::Netwo
        cloud_subnets
        network_ports
        security_groups].each do |name|
-      add_collection(network, name)
+      add_network_collection(name)
     end
   end
 
   def add_related_cloud_collections
     %i[resource_groups
        vms].each do |name|
-      add_collection(cloud, name) do |builder|
+      add_cloud_collection(name) do |builder|
         builder.add_properties(
-          :parent   => manager.parent_manager,
           :strategy => :local_db_find_references
         )
       end
