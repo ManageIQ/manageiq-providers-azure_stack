@@ -80,7 +80,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
 
   module ClassMethods
     def params_for_create
-      @params_for_create ||= {
+      {
         :fields => [
           {
             :component  => "text-field",
@@ -175,7 +175,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                     :component  => "text-field",
                     :id         => "authentications.default.userid",
                     :name       => "authentications.default.userid",
-                    :label      => "Username",
+                    :label      => _("Username"),
                     :isRequired => true,
                     :validate   => [{:type => "required"}],
                   },
@@ -183,7 +183,7 @@ module ManageIQ::Providers::AzureStack::ManagerMixin
                     :component  => "password-field",
                     :id         => "authentications.default.password",
                     :name       => "authentications.default.password",
-                    :label      => "Password",
+                    :label      => _("Password"),
                     :type       => "password",
                     :isRequired => true,
                     :validate   => [{:type => "required"}],
