@@ -1,12 +1,12 @@
 # ManageIQ::Providers::AzureStack
 
-[![CI](https://github.com/ManageIQ/manageiq-providers-azure_stack/actions/workflows/ci.yaml/badge.svg)](https://github.com/ManageIQ/manageiq-providers-azure_stack/actions/workflows/ci.yaml)
+[![CI](https://github.com/ManageIQ/manageiq-providers-azure_stack/actions/workflows/ci.yaml/badge.svg?branch=oparin)](https://github.com/ManageIQ/manageiq-providers-azure_stack/actions/workflows/ci.yaml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e9abcd437efff98ed5b9/maintainability)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e9abcd437efff98ed5b9/test_coverage)](https://codeclimate.com/github/ManageIQ/manageiq-providers-azure_stack/test_coverage)
 
 [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-azure_stack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build history for master branch](https://buildstats.info/github/chart/ManageIQ/manageiq-providers-azure_stack?branch=master&buildCount=50&includeBuildsFromPullRequest=false&showstats=false)](https://github.com/ManageIQ/manageiq-providers-azure_stack/actions?query=branch%3Amaster)
+[![Build history for oparin branch](https://buildstats.info/github/chart/ManageIQ/manageiq-providers-azure_stack?branch=oparin&buildCount=50&includeBuildsFromPullRequest=false&showstats=false)](https://github.com/ManageIQ/manageiq-providers-azure_stack/actions?query=branch%3Amaster)
 
 ManageIQ plugin for the Azure Stack provider.
 
