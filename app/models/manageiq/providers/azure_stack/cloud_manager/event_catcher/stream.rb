@@ -27,7 +27,7 @@ class ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Stream
             @since ||= initial_time
 
             filter = "eventTimestamp ge #{@since.iso8601(3)}"
-            events = connection.activity_logs.list(:filter => filter).sort_by(&:event_timestamp)
+            events = connection.activity_logs.list({:filter => filter}).sort_by(&:event_timestamp)
             yield events
 
             @since = update_time(events) unless events.empty?

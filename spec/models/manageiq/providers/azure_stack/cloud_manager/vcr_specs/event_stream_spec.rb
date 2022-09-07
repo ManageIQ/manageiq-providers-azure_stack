@@ -4,7 +4,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Stream do
   let(:capture_since) { Time.parse('2019-01-07T20:00:00Z').utc }
   let!(:ems)          { FactoryBot.create(:ems_azure_stack_with_vcr_authentication, :skip_validate, :api_version => api_version) }
 
-  subject { described_class.new(ems, :since => capture_since) }
+  subject { described_class.new(ems, {:since => capture_since}) }
 
   supported_api_versions do |api_version|
     describe '#poll' do
