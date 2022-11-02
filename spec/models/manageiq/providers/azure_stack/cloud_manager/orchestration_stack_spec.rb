@@ -9,7 +9,7 @@ describe ManageIQ::Providers::AzureStack::CloudManager::OrchestrationStack do
 
     before do
       allow_any_instance_of(MsRestAzure::Common::Configurable).to receive(:reset!)
-      allow(ems).to receive(:connect).with(:service => :Resources).and_return(client)
+      allow(ems).to receive(:connect).with({:service => :Resources}).and_return(client)
     end
 
     subject do
