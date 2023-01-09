@@ -1,6 +1,8 @@
 class ManageIQ::Providers::AzureStack::CloudManager::Vm < ManageIQ::Providers::CloudManager::Vm
   include ManageIQ::Providers::AzureStack::EmsRefMixin
 
+  supports :capture
+
   POWER_STATES = {
     'PowerState/running'      => 'on',
     'PowerState/starting'     => 'powering_up',
