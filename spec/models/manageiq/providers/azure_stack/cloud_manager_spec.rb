@@ -170,4 +170,18 @@ describe ManageIQ::Providers::AzureStack::CloudManager do
       end
     end
   end
+
+  context "#pause!" do
+    let(:zone) { FactoryBot.create(:zone) }
+    let(:ems)  { FactoryBot.create(:ems_azure_stack, :zone => zone) }
+
+    include_examples "ExtManagementSystem#pause!"
+  end
+
+  context "#resume!" do
+    let(:zone) { FactoryBot.create(:zone) }
+    let(:ems)  { FactoryBot.create(:ems_azure_stack, :zone => zone) }
+
+    include_examples "ExtManagementSystem#resume!"
+  end
 end
