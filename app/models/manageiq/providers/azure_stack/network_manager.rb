@@ -1,11 +1,4 @@
 class ManageIQ::Providers::AzureStack::NetworkManager < ManageIQ::Providers::NetworkManager
-  require_nested :RefreshWorker
-  require_nested :Refresher
-  require_nested :CloudNetwork
-  require_nested :CloudSubnet
-  require_nested :NetworkPort
-  require_nested :SecurityGroup
-
   delegate :api_version,
            :authentication_check,
            :authentication_status,

@@ -1,7 +1,4 @@
 class ManageIQ::Providers::AzureStack::Inventory::Collector::TargetCollection < ManageIQ::Providers::AzureStack::Inventory::Collector
-  require_nested :V2018_03_01
-  require_nested :V2017_03_09
-
   def initialize(manager, target)
     super
 
