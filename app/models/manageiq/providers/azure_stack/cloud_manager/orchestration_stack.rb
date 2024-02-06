@@ -1,6 +1,4 @@
 class ManageIQ::Providers::AzureStack::CloudManager::OrchestrationStack < ManageIQ::Providers::CloudManager::OrchestrationStack
-  require_nested :Status
-
   def self.raw_create_stack(ems, stack_name, template, options = {})
     create_or_update_stack(ems, stack_name, template, options)
   rescue => err

@@ -1,9 +1,6 @@
 # This class contains a reference implementation of collector for CloudManager.
 # The methods implemented here are completely aligned with the V2018_03_01 version profile.
 class ManageIQ::Providers::AzureStack::Inventory::Collector::CloudManager < ManageIQ::Providers::AzureStack::Inventory::Collector
-  require_nested :V2018_03_01
-  require_nested :V2017_03_09
-
   def resource_groups
     @resource_groups ||= azure_resources.resource_groups.list
   end

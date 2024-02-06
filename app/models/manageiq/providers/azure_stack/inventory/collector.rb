@@ -1,7 +1,4 @@
 class ManageIQ::Providers::AzureStack::Inventory::Collector < ManageIQ::Providers::Inventory::Collector
-  require_nested :CloudManager
-  require_nested :TargetCollection
-
   include ManageIQ::Providers::AzureStack::EmsRefMixin
 
   def initialize(manager, refresh_target)
