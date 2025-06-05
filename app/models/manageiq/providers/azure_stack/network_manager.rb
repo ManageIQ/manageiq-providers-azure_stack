@@ -19,6 +19,10 @@ class ManageIQ::Providers::AzureStack::NetworkManager < ManageIQ::Providers::Net
            :to        => :parent_manager,
            :allow_nil => true
 
+  class << self
+    delegate :refresh_ems, :to => ManageIQ::Providers::AzureStack::CloudManager
+  end
+
   def description
     provider_region
   end
