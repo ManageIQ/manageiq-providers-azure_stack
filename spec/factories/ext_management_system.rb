@@ -21,16 +21,16 @@ FactoryBot.define do
 
     after(:build) do |ems|
       ems.provider_region = 'westus'
-      ems.hostname = Rails.application.secrets.azure_stack[:host]
-      ems.update(:azure_tenant_id => Rails.application.secrets.azure_stack[:tenant])
-      ems.update(:subscription    => Rails.application.secrets.azure_stack[:subscription])
+      ems.hostname = VcrSecrets.azure_stack.host
+      ems.update(:azure_tenant_id => VcrSecrets.azure_stack.tenant)
+      ems.update(:subscription    => VcrSecrets.azure_stack.subscription)
     end
 
     after(:create) do |ems|
       ems.authentications << FactoryBot.create(
         :authentication,
-        :userid   => Rails.application.secrets.azure_stack[:userid],
-        :password => Rails.application.secrets.azure_stack[:password]
+        :userid   => VcrSecrets.azure_stack.userid,
+        :password => VcrSecrets.azure_stack.password
       )
     end
   end

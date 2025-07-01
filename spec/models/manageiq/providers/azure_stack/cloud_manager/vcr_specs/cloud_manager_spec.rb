@@ -1,9 +1,9 @@
 describe ManageIQ::Providers::AzureStack::CloudManager do
-  let(:url)           { "https://#{Rails.application.secrets.azure_stack[:host]}" }
-  let(:tenant)        { Rails.application.secrets.azure_stack[:tenant] }
-  let(:userid)        { Rails.application.secrets.azure_stack[:userid] }
-  let(:password)      { Rails.application.secrets.azure_stack[:password] }
-  let(:subscription)  { Rails.application.secrets.azure_stack[:subscription] }
+  let(:url)           { "https://#{VcrSecrets.azure_stack.host}" }
+  let(:tenant)        { VcrSecrets.azure_stack.tenant }
+  let(:userid)        { VcrSecrets.azure_stack.userid }
+  let(:password)      { VcrSecrets.azure_stack.password }
+  let(:subscription)  { VcrSecrets.azure_stack.subscription }
 
   supported_api_versions do |api_version|
     describe '#raw_connect' do

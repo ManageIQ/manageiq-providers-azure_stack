@@ -1,5 +1,5 @@
 describe ManageIQ::Providers::AzureStack::CloudManager::Refresher do
-  let(:subscription) { Rails.application.secrets.azure_stack[:subscription] }
+  let(:subscription) { VcrSecrets.azure_stack.subscription }
 
   REFRESH_SETTINGS = [
     {
