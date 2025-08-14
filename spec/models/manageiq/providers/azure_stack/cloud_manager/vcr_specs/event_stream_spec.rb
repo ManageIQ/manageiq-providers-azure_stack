@@ -1,6 +1,6 @@
 describe ManageIQ::Providers::AzureStack::CloudManager::EventCatcher::Stream do
-  let(:userid)        { Rails.application.secrets.azure_stack[:userid] }
-  let(:subscription)  { Rails.application.secrets.azure_stack[:subscription] }
+  let(:userid)        { VcrSecrets.azure_stack.userid }
+  let(:subscription)  { VcrSecrets.azure_stack.subscription }
   let(:capture_since) { Time.parse('2019-01-07T20:00:00Z').utc }
   let!(:ems)          { FactoryBot.create(:ems_azure_stack_with_vcr_authentication, :skip_validate, :api_version => api_version) }
 
