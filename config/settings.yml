@@ -44,6 +44,7 @@
     :allow_targeted_refresh: true
   :azure_stack_network:
     :allow_targeted_refresh: true
+    :refresh_interval: 0
 
 :log:
   :level_azure_stack: info
